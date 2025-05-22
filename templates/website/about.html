@@ -11,7 +11,7 @@
   <section class="about-hero" style="background-image: url('{% static 'peb.png' %}');">
     <div class="dark-overlay"></div>
     <div class="hero-overlay">
-      <h1 style="color: white;" class="hero-title"><span style="padding: 10px;"> Origin Kitchen</span></h1>
+      <h1 style="color: white;" class="hero-title"><span style="padding: 10px;"> About Us</span></h1>
       <p style="color: white;" class="hero-subtitle"><span style="padding: 10px;">Discover the journey behind The <b> Origin Kitchen</b>, where every dish is made with passion and care.
 </span></p>
     </div>
@@ -779,16 +779,16 @@
     }
 
     .cards {
-      display: flex;
-      justify-content: space-between;
-      gap: 60px;
-      margin: 0 auto;
-      width: 100%;
-      max-width: 1200px;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: stretch;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Ensures centering */
+  gap: 60px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  align-items: stretch;
+}
+
 
     .card {
       background: #f6f8f3;
@@ -872,6 +872,8 @@
       .cards {
         flex-direction: column;
         gap: 10px;
+        flex-direction: column;
+    align-items: center;
       }
 
       .card {
@@ -885,28 +887,53 @@
     }
 
     @media (max-width: 480px) {
-      .titlefeature {
-        font-size: 18px;
-      }
+  .titlefeature {
+    font-size: 18px;
+  }
 
-      .titlefeature span {
-        font-size: 26px;
-      }
+  .titlefeature span {
+    font-size: 26px;
+  }
 
-      .card {
-        width: 90%;
-        margin: 0 auto 10px;
-      }
+  .card {
+    width: 95%;
+    margin: 0 auto 10px;
+    border-radius: 6px;
+  }
 
-      .card img {
-        height: 140px;
-      }
+  .card img {
+    height: 120px;
+  }
 
-      .morecard {
-        font-size: 12px;
-        padding: 6px 12px;
-      }
-    }
+  .cardinfo {
+    padding: 12px;
+  }
+
+  .cardinfo h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .cardinfo p {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+
+  .cardinfo .description {
+    font-size: 12px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    max-height: 3.6em; /* approximately 3 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .morecard {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}
+
 
     .why {
       display: flex;
