@@ -778,16 +778,17 @@
       color: #777;
     }
 
-    .cards {
+   .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Ensures centering */
+  justify-content: center; /* Center items when wrapping */
   gap: 60px;
   margin: 0 auto;
   width: 100%;
   max-width: 1200px;
   align-items: stretch;
 }
+
 
 
     .card {
@@ -933,7 +934,23 @@
     padding: 5px 10px;
   }
 }
+@media (max-width: 900px) {
+  .card {
+    width: 80%; /* Keep original width */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 950px) {
+  .cards {
+    justify-content: center; /* ensure second row is centered */
+  }
 
+  .card:nth-child(3) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
     .why {
       display: flex;

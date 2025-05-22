@@ -996,100 +996,126 @@
     }
     /* Features Section */
     .features {
-      padding: 4rem 2rem;
-      text-align: center;
-      background-color: #fff;
-    }
-    .features .titlefeature {
-      margin-bottom: 3rem;
-    }
-    .features .subt p {
-      text-transform: uppercase;
-      font-size: 1.2rem;
-      color: #777;
-      margin-bottom: 0.5rem;
-    }
-    .features .titlefeature span {
-      font-size: 2.5rem;
-      font-family: 'Butler', sans-serif;
-      color: #2F5F4A;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .features .subb {
-      font-size: 1.1rem;
-      color: #555;
-    }
-    .features .cards {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 2rem;
-      justify-items: center;
-    }
-    @media (min-width: 800px) {
-      .features .cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    .features .card {
-      background: #F6F8F3;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      width: 95%;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .features .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
-    }
-    .features .cardinfo {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .features .card-icon {
-      font-size: 2.5rem;
-      color: #2F5F4A;
-      margin-bottom: 1rem;
-    }
-    .features .cardinfo h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #2F5F4A;
-      margin-bottom: 1rem;
-    }
-    .features .cardinfo .description {
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.7;
-      text-align: center;
-    }
-    .features .morecard {
-      background-color: transparent;
-      color: #2F5F4A;
-      border: 2px solid #2F5F4A;
-      border-radius: 8px;
-      padding: 10px 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      cursor: pointer;
-    }
-    .features .morecard:hover {
-      background-color: #2F5F4A;
-      color: #fff;
-    }
-    @media (max-width: 480px) {
-      .features .card {
-        width: 100%;
-      }
-      .features .card img {
-        height: 140px;
-      }
-    }
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+.features .titlefeature {
+  margin-bottom: 3rem;
+}
+
+.features .subt p {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.features .titlefeature span {
+  font-size: 2.5rem;
+  font-family: 'Butler', sans-serif;
+  color: #2F5F4A;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.features .subb {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* FLEX CONTAINER FOR CARDS */
+.features .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* DEFAULT: 3 per row */
+.features .card {
+  flex: 1 1 calc(33.33% - 2rem);
+  max-width: calc(33.33% - 2rem);
+  background: #F6F8F3;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.features .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Card content */
+.features .cardinfo {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features .card-icon {
+  font-size: 2.5rem;
+  color: #2F5F4A;
+  margin-bottom: 1rem;
+}
+
+.features .cardinfo h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2F5F4A;
+  margin-bottom: 1rem;
+}
+
+.features .cardinfo .description {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Button inside card */
+.features .morecard {
+  background-color: transparent;
+  color: #2F5F4A;
+  border: 2px solid #2F5F4A;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.features .morecard:hover {
+  background-color: #2F5F4A;
+  color: #fff;
+}
+
+/* TABLET: 2 per row */
+@media (max-width: 950px) {
+  .features .card {
+    flex: 1 1 calc(50% - 2rem);
+    max-width: calc(50% - 2rem);
+  }
+}
+
+/* MOBILE: 1 per row */
+@media (max-width: 600px) {
+  .features .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
     /* Contact Section */
     .contact {
       background-image: url("{% static 'k.jpg' %}");
