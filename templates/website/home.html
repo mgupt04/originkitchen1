@@ -1,0 +1,1037 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Origin Kitchen{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-overlay">
+    <h1 class="hero-title">Origin Kitchen</h1>
+    <p class="hero-subtitle">We offer fresh vegetarian dining, focusing on farm-to-table ingredients and sustainable practices to keep the planet healthy. Every dish has a unique flavor and is crafted with care and a commitment to your well-being.</p>
+    <div class="hero-buttons">
+      <a href="{% url 'contact' %}" class="hero-btn">Contact us</a>
+      <a href="{% url 'about' %}" class="hero-btn">About us</a>
+    </div>
+  </div>
+</section>
+
+<div class="services-header">
+  <p>Our Approach</p>
+  <h2>Fresh, Thoughtful, and Sustainable Practices</h2>
+</div>
+
+<section class="sticky-services-section" style="margin-top: 2%;">
+  <div class="service-base">
+    <div class="service-cover">
+      <div class="service-item-card">
+        <div class="service-content">
+          <div class="service-image">
+            <img src="{% static 'a.jpg' %}" alt="Garden Design">
+          </div>
+          <div class="service-description">
+            <div class="uppercase-text">Farm to Table</div>
+            <h2 class="main-heading-h2">Offering fresh food from local farmers</h2>
+            <div class="medium-text">Our restaurant offers fresh vegetarian produce from all over the state to provide you with a healthy and fresh meal</div>
+            <a href="{% url 'about' %}" class="button-link"><div class="button-link-inner">More Info →</div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-base">
+    <div class="service-cover">
+      <div class="service-item-card">
+        <div class="service-content">
+          <div class="service-image">
+            <img src="{% static 'c.jpg' %}" alt="Landscape Installation">
+          </div>
+          <div class="service-description">
+            <div class="uppercase-text">Chef Curated Dishes</div>
+            <h2 class="main-heading-h2">Expertly crafted meals by our head chef</h2>
+            <div class="medium-text">Our chef creates unique, flavorful dishes using the finest ingredients, combining creativity and passion to deliver an unforgettable dining experience.</div>
+            <a href="{% url 'about' %}" class="button-link"><div class="button-link-inner">More Info →</div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-base" style="margin-bottom: 0; padding-bottom: 0;">
+    <div class="service-cover">
+      <div class="service-item-card">
+        <div class="service-content">
+          <div class="service-image">
+            <img src="{% static 'd.jpg' %}" alt="Garden Maintenance">
+          </div>
+          <div class="service-description">
+            <div class="uppercase-text">Sustainability</div>
+            <h2 class="main-heading-h2">Committed to eco-friendly practices</h2>
+            <div class="medium-text">We prioritize sustainable sourcing and waste reduction to minimize our environmental impact while delivering delicious meals.</div>
+            <a href="{% url 'about' %}" class="button-link"><div class="button-link-inner">More Info →</div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits-section" style="margin-top:0;">
+  <div class="benefits-container">
+    <div class="benefits-left">
+      <h1>Seasonal Specials</h1>
+      <p>Discover our rotating menu that highlights the best seasonal flavors all year round.</p>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <p>01</p>
+          <h3>Fresh Ingredients</h3>
+          <p>We source ingredients that are at their peak each season to deliver unbeatable taste.</p>
+        </div>
+        <div class="benefit-item">
+          <p>02</p>
+          <h3>Unique Recipes</h3>
+          <p>Creative dishes inspired by seasonal produce to surprise your palate.</p>
+        </div>
+      </div>
+      <a href="{% url 'menu' %}" class="btn-primary">Menu</a>
+    </div>
+    <div class="benefits-right">
+      <img src="{% static 'ab.jpg' %}" alt="Seasonal dishes">
+    </div>
+  </div>
+</section>
+
+<section class="affiliations">
+  <div class="container">
+    <h2 style="color:#2F5F4A;">Our Trusted Partners</h2>
+    <p style="color: #777;">
+      We collaborate with leading agricultural companies to bring you the best tools and insights for sustainable farming.
+    </p>
+    <div class="carousel">
+      <div class="carousel-track">
+        <img src="https://pbs.twimg.com/profile_images/1637457431264362496/uo1nbgQ1_400x400.jpg" alt="John Deere Logo">
+        <img src="https://www.agriculture.com/thmb/eIItNBsfYqgbeaKbybJOAV6jzAM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/monsanto-624c5ed1c8294ff18fc44e6ced4620c3.jpg" alt="Monsanto Logo">
+        <img src="https://www.nurserymag.com/remote/aHR0cHM6Ly9naWVjZG4uYmxvYi5jb3JlLndpbmRvd3MubmV0L2ZpbGV1cGxvYWRzL2ltYWdlLzIwMjQvMDYvMjUvc3luZ2VudGEuanBn.ZI8gYkvJsqY.jpg?format=webp" alt="Syngenta Logo">
+        <img src="https://d2c0db5b8fb27c1c9887-9b32efc83a6b298bb22e7a1df0837426.ssl.cf2.rackcdn.com/19403222-cargill-logo-1006x604.png" alt="Cargill Logo">
+        <img src="https://talkbusiness.net/wp-content/uploads/2024/02/tysonfoodslogonew2024.jpg" alt="Tyson Foods Logo">
+        <img src="https://acp-assets.sfo3.cdn.digitaloceanspaces.com/assets/images/article_images/5F35BB91-4332-412F-AAD7-ABAF5CC7771F.webp" alt="Vermeer Logo">
+        <img src="https://pbs.twimg.com/profile_images/1637457431264362496/uo1nbgQ1_400x400.jpg" alt="John Deere Logo">
+        <img src="https://www.agriculture.com/thmb/eIItNBsfYqgbeaKbybJOAV6jzAM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/monsanto-624c5ed1c8294ff18fc44e6ced4620c3.jpg" alt="Monsanto Logo">
+        <img src="https://www.nurserymag.com/remote/aHR0cHM6Ly9naWVjZG4uYmxvYi5jb3JlLndpbmRvd3MubmV0L2ZpbGV1cGxvYWRzL2ltYWdlLzIwMjQvMDYvMjUvc3luZ2VudGEuanBn.ZI8gYkvJsqY.jpg?format=webp" alt="Syngenta Logo">
+        <img src="https://d2c0db5b8fb27c1c9887-9b32efc83a6b298bb22e7a1df0837426.ssl.cf2.rackcdn.com/19403222-cargill-logo-1006x604.png" alt="Cargill Logo">
+        <img src="https://talkbusiness.net/wp-content/uploads/2024/02/tysonfoodslogonew2024.jpg" alt="Tyson Foods Logo">
+        <img src="https://acp-assets.sfo3.cdn.digitaloceanspaces.com/assets/images/article_images/5F35BB91-4332-412F-AAD7-ABAF5CC7771F.webp" alt="Vermeer Logo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-container">
+  <div class="portfolio-wrapper">
+    <img class="left-image" src="{% static 'f.jpg' %}" alt="Fresh ingredients in kitchen">
+    <div class="right-content">
+      <p class="section-header">Our Blog</p>
+      <h1>Stories From Our Kitchen & Community</h1>
+      <div class="right-item">
+        <img src="{% static 'e.jpg' %}" alt="Farm to table blog">
+        <div class="text-block">
+          <h1>Farm to Table: Why It Matters</h1>
+          <p>Discover how we source local produce and support sustainable farming through every dish we serve.</p>
+          <a class="blog-link" href="{% url 'blog' %}">Read more →</a>
+        </div>
+      </div>
+      <div class="right-item">
+        <img src="{% static 'gg.jpg' %}" alt="Chef blog">
+        <div class="text-block">
+          <h1>Meet Our Chef</h1>
+          <p>Go behind the scenes with our head chef and learn what inspires our signature vegetarian creations.</p>
+          <a class="blog-link" href="{% url 'blog' %}">Read more →</a>
+        </div>
+      </div>
+      <div class="right-item">
+        <img src="{% static 'ii.jpg' %}" alt="Seasonal menu blog">
+        <div class="text-block">
+          <h1>Seasonal Menu Highlights</h1>
+          <p>Take a look at our latest seasonal dishes crafted with the freshest vegetables of the season.</p>
+          <a class="blog-link" href="{% url 'blog' %}">Read more →</a>
+        </div>
+      </div>
+      <div class="right-item">
+        <img src="{% static 'h.jpg' %}" alt="Sustainability blog">
+        <div class="text-block">
+          <h1>Sustainability in Action</h1>
+          <p>From composting to zero-waste initiatives, learn how we keep our kitchen eco-friendly.</p>
+          <a class="blog-link" href="{% url 'blog' %}">Read more →</a>
+        </div>
+      </div>
+      <div class="right-item">
+        <img src="{% static 'jj.jpg' %}" alt="Community blog">
+        <div class="text-block">
+          <h1>Community Spotlights</h1>
+          <p>Read about the farmers, artisans, and partners who help bring our mission to life.</p>
+          <a class="blog-link" href="{% url 'blog' %}">Read more →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="margin-top: 60px;" class="faq-section">
+  <section class="features">
+    <h2 class="titlefeature">
+      <div class="subt"><p>Answering Common Inquiries</p></div>
+      <span>Frequently Asked Questions</span>
+      <div class="subb">Here's our answers to YOUR questions!</div>
+    </h2>
+  </section>
+  <div class="container">
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="faqHeading1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+            Is your menu entirely vegetarian?
+          </button>
+        </h3>
+        <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, our menu is 100% vegetarian, featuring fresh, farm-to-table ingredients. We craft every dish to be flavorful and satisfying for all diners, whether you're vegetarian or just exploring plant-based options.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="faqHeading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+            Do you accommodate dietary restrictions?
+          </button>
+        </h3>
+        <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Absolutely! We offer gluten-free, vegan, and nut-free options. Please inform our staff of any dietary restrictions when making a reservation or ordering, and we'll tailor your meal to your needs.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="faqHeading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+            Where do you source your ingredients?
+          </button>
+        </h3>
+        <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We partner with local farmers and trusted agricultural companies to source fresh, seasonal produce. Our commitment to sustainability ensures that our ingredients are ethically and responsibly grown.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="faqHeading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+            How can I make a reservation?
+          </button>
+        </h3>
+        <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            You can make a reservation through our website's <a href="{% url 'locations' %}" class="button-link">Locations</a> page or by contacting us directly via our <a href="{% url 'contact' %}" class="button-link">Contact</a> page. We recommend booking in advance for peak times.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="faqHeading5">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+            What are your sustainability practices?
+          </button>
+        </h3>
+        <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We prioritize eco-friendly practices, including composting, zero-waste kitchen initiatives, and using 100% eco-friendly packaging. Learn more on our <a href="{% url 'sus' %}" class="button-link">Sustainability</a> page.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Scroll Animation for Portfolio Items
+  const portfolioItems = document.querySelectorAll('.right-item');
+  const observerOptions = {
+    root: null,
+    threshold: 0.2
+  };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  portfolioItems.forEach(item => {
+    observer.observe(item);
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Reset and Base Styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: #2A2A2A;
+    background-color: #ffffff;
+    margin: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Font for Headings (Butler) */
+  @font-face {
+    font-family: 'Butler';
+    src: url('https://cdn.prod.website-files.com/670f7ea49b9dfdd5b6fb31b4/6712288436687e9d40d1c2da_Butler_Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Butler';
+    src: url('https://cdn.prod.website-files.com/670f7ea49b9dfdd5b6fb31b4/671228844bde86400c480fbd_Butler_Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Consistent Button Styles */
+  .btn-primary {
+    background-color: #2F5F4A;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background-color: #4CAF50;
+    transform: translateY(-2px);
+  }
+
+  /* Hero Section */
+  .hero {
+    background-image: url('{% static "b.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: 8%;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding-left: 8%;
+    box-sizing: border-box;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    width: 100%;
+    letter-spacing: -0.02em;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: webflow-icons;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 400;
+    width: 52%;
+    margin: 1.5rem 0 2rem 0;
+    color: #eee;
+    font-family: monospace;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .hero-btn {
+    background-color: transparent;
+    color: white;
+    padding: 12px 24px;
+    border: 2px solid white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    width: fit-content;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.9s;
+  }
+
+  .hero-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: white;
+    transform: translateY(-2px);
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 800px) {
+    .hero {
+      padding-left: 5%;
+      padding-right: 5%;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-overlay {
+      align-items: center;
+      padding-left: 5%;
+      padding-right: 5%;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      width: 100%;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .hero-btn {
+      width: 100%;
+      max-width: 250px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 0.9s;
+    }
+  }
+
+  /* Services Section */
+  .services-header {
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .services-header p {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 1rem;
+  }
+
+  .services-header h2 {
+    font-size: 2.5rem;
+    font-family: 'Butler', sans-serif;
+    color: #2F5F4A;
+    margin-bottom: 1rem;
+  }
+
+  .sticky-services-section {
+    background-color: #fff;
+    position: relative;
+    z-index: 25;
+  }
+
+  .service-base {
+    background-color: #fff;
+    border: 1px solid rgba(39, 56, 31, 0.2);
+    border-radius: 12px;
+    max-height: 53rem;
+    display: flex;
+    margin-top: -5%;
+    position: sticky;
+    top: 3rem;
+    padding: 2%;
+    box-sizing: border-box;
+  }
+
+  .service-cover {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .service-item-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .service-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 0;
+  }
+
+  .service-image {
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+  }
+
+  .service-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .service-description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .uppercase-text {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: 500;
+  }
+
+  .main-heading-h2 {
+    font-size: 2rem;
+    font-family: 'Butler', sans-serif;
+    color: #2F5F4A;
+  }
+
+  .service-cost {
+    border: 1px solid rgba(39, 56, 31, 0.2);
+    border-radius: 6px;
+    padding: 0.3rem 0.8rem;
+    font-size: 1rem;
+    color: #2A2A2A;
+    display: inline-block;
+  }
+
+  .medium-text {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .button-link {
+    text-decoration: none;
+    color: #2F5F4A;
+    font-weight: 500;
+  }
+
+  .button-link:hover {
+    color: #4CAF50;
+  }
+
+  @media (max-width: 768px) {
+    .service-content {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      padding: 50px;
+    }
+
+    .service-image {
+      height: auto;
+    }
+  }
+
+  /* Benefits Section */
+  .benefits-section {
+    background-color: #ECECEC;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .benefits-container {
+    display: flex;
+    gap: 3rem;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .benefits-left {
+    flex: 1;
+  }
+
+  .benefits-left h1 {
+    font-size: 2.5rem;
+    font-family: 'Butler', sans-serif;
+    color: #2F5F4A;
+    margin-bottom: 1rem;
+  }
+
+  .benefits-left p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+
+  .benefits-grid {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .benefit-item {
+    flex: 1;
+  }
+
+  .benefit-item p:first-child {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2F5F4A;
+    margin-bottom: 0.5rem;
+  }
+
+  .benefit-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2A2A2A;
+    margin-bottom: 0.5rem;
+  }
+
+  .benefit-item p:last-child {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .benefits-left .btn-primary {
+    width: 150px;
+    text-align: center;
+  }
+
+  .benefits-right {
+    flex: 1;
+  }
+
+  .benefits-right img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .benefits-container {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .benefits-grid {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .benefits-left .btn-primary {
+      width: 50%;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  /* Portfolio Section */
+  .section-container {
+    padding: 4rem 2rem;
+    background-color: #fff;
+    position: relative;
+    z-index: 25;
+  }
+
+  .portfolio-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  .section-header {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 1rem;
+  }
+
+  .section-container h1 {
+    font-size: 2.5rem;
+    font-family: 'Butler', sans-serif;
+    color: #2F5F4A;
+    margin-bottom: 2rem;
+  }
+
+  .left-image {
+    width: 50%;
+    border-radius: 15px;
+    object-fit: cover;
+    position: sticky;
+    top: 3rem;
+    height: 70vh;
+  }
+
+  .right-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .right-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .right-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .right-item img {
+    width: 50%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .text-block {
+    width: 50%;
+  }
+
+  .text-block h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2A2A2A;
+    margin-bottom: 0.5rem;
+  }
+
+  .text-block p {
+    font-size: 1rem;
+    color: #555;
+    text-transform: none;
+  }
+
+  /* Blog Read More Link Styling */
+  .blog-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #2F5F4A;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+  }
+
+  .blog-link:hover {
+    color: #4CAF50;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-wrapper {
+      flex-direction: column;
+      padding: 2rem;
+    }
+
+    .section-header,
+    .section-container h1 {
+      text-align: center;
+    }
+
+    .left-image,
+    .right-content {
+      width: 100%;
+    }
+
+    .left-image {
+      display: none;
+    }
+
+    .right-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .right-item img,
+    .text-block {
+      width: 100%;
+    }
+
+    .right-item img {
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Affiliations Section */
+  .affiliations {
+    margin: 40px 0;
+    text-align: center;
+    background-color: #fff;
+    width: 100%;
+    padding: 40px 0;
+    color: #333;
+    box-sizing: border-box;
+  }
+
+  .affiliations h2 {
+    font-family: 'Butler', sans-serif;
+    margin-bottom: 20px;
+    color: #222;
+  }
+
+  .affiliations p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 40px;
+  }
+
+  .carousel {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    align-items: center;
+    animation: slide 20s linear infinite;
+    width: max-content;
+  }
+
+  .carousel-track img {
+    width: 200px;
+    height: 120px;
+    margin: 0 30px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .carousel-track img:hover {
+    opacity: 1;
+  }
+
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .faq-header {
+    margin-bottom: 3rem;
+  }
+
+  .faq-header .section-header {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-header h2 {
+    font-size: 2.5rem;
+    font-family: 'Butler', sans-serif;
+    color: #2F5F4A;
+    margin-bottom: 1rem;
+  }
+
+  .faq-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .accordion-item {
+    background-color: #fff;
+    border: 1px solid rgba(39, 56, 31, 0.2);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .accordion-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .accordion-header {
+    font-family: inherit;
+  }
+
+  .accordion-button {
+    background-color: #fff;
+    color: #2F5F4A;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1.25rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+  }
+
+  .accordion-button:not(.collapsed) {
+    background-color: #2F5F4A;
+    color: #fff;
+  }
+
+  .accordion-button:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232F5F4A'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    width: 1.125rem;
+    height: 1.125rem;
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    transform: rotate(-180deg);
+  }
+
+  .accordion-collapse {
+    transition: max-height 0.3s ease;
+  }
+
+  .accordion-body {
+    padding: 1.25rem;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    background-color: #fff;
+  }
+
+  .accordion-body a {
+    color: #2F5F4A;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .accordion-body a:hover {
+    color: #4CAF50;
+    text-decoration: underline;
+  }
+
+  /* Features Section (FAQ Header) */
+  .features {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #fff;
+  }
+
+  .features .titlefeature {
+    margin-bottom: 3rem;
+  }
+
+  .features .subt p {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+  }
+
+  .features .titlefeature span {
+    font-size: 2.5rem;
+    font-family: 'Butler', sans-serif;
+    color: #2F5F4A;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .features .subb {
+    font-size: 1.1rem;
+    color: #555;
+  }
+</style>
+{% endblock %}

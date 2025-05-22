@@ -1,0 +1,26 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Sustainability{% endblock %}
+
+{% block content %}
+
+  <!-- Include Font Awesome for Arrows -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'website/styles.css' %}">
+
+<div class="moresec">
+    <a href="{% url 'about' %}" class="backLink">&larr; Back</a>
+
+    <h1 class="moreTitle">Farm-to-Table</h1>
+
+    <div class="imageMore">
+    </div>
+
+    <center><p class="paragraphmore">
+Our commitment to serving the best-tasting food to our valued customers begins with ensuring that our produce is totally authentic. This we do through a selective choosing process since the real flavor of the food reflects its organic quality. We have partnered with local farmers and local farmer markets who share the same passion for sustainability. We also visit the farms on a regular basis to inspect the farming techniques in order to check the soil health, water conservation practices, and the non-usage of pesticides and fertilizers. In order for us to build a relationship that is way beyond just employer and employee we respect the farmers' livelihood as it is our motto to respect the farmer just as much as the food.
+<br><br>
+As an Organic Restaurant, transparency is at the heart of everything we do. Our open kitchen design allows our customers to see their meals prepped in real time. The use of QR codes on our menu’s show detailed information about our farms and farmers. We believe that we have a sacred duty to uphold the trust of the customer, we uphold this through letting the customer know where the food comes from and how it is handled.
+<br><br>
+We recognize that the health of the land is just as important as the quality of produce. To preserve the soil’s nutrients we invest in long-term sustainability methods such as crop rotation. By incorporating seasonal crops we promote the overall health of the soil, and deliver rich and diverse foods.    </p></center>
+  </div>
+{% endblock %}

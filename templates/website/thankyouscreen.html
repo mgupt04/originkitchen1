@@ -1,0 +1,177 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Order Confirmed - Origin Kitchen{% endblock %}
+
+{% block content %}
+<div class="place-order-container">
+  <!-- Thank You Screen -->
+  <div class="thank-you-card">
+    <i class="bi bi-check-circle-fill success-icon"></i>
+    <h1>Thank You for Your Order!</h1>
+    <p class="thank-you-message">
+      We've received your order and are <strong class="email-display">getting it ready!</strong>. 
+      Our team is getting your delicious meal ready! You'll hear from us soon with updates.
+    </p>
+    <div class="thank-you-actions">
+      <a href="{% url 'menu' %}" class="btn btn-primary">Explore More Dishes</a>
+      <a href="{% url 'blog' %}" class="btn btn-outline">Read Our Blog</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Container */
+  .place-order-container {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  /* Thank You Card */
+  .thank-you-card {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95) url('{% static "website/images/order-bg.jpg" %}') no-repeat center/cover;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .success-icon {
+    font-size: 4rem;
+    color: #27ae60;
+    margin-bottom: 20px;
+  }
+
+  .thank-you-card h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .thank-you-message {
+    font-size: 1.4rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 600px;
+  }
+
+  .thank-you-message strong {
+    color: #27ae60;
+  }
+
+  .thank-you-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: #27ae60;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background: #219653;
+    transform: translateY(-3px);
+  }
+
+  .btn-outline {
+    background: #ffffff;
+    color: #27ae60;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 30px;
+    border: 1px solid #27ae60;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-outline:hover {
+    background: #27ae60;
+    color: #ffffff;
+    transform: translateY(-3px);
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .place-order-container {
+      padding: 30px 15px;
+    }
+
+    .thank-you-card {
+      padding: 30px 15px;
+    }
+
+    .thank-you-card h1 {
+      font-size: 2.5rem;
+    }
+
+    .thank-you-message {
+      font-size: 1.2rem;
+      max-width: 90%;
+    }
+
+    .thank-you-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .btn-primary, .btn-outline {
+      width: 100%;
+      max-width: 300px;
+      padding: 12px 20px;
+      font-size: 1rem;
+    }
+
+    .success-icon {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .thank-you-card h1 {
+      font-size: 2rem;
+    }
+
+    .thank-you-message {
+      font-size: 1rem;
+    }
+
+    .success-icon {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+{% endblock %}

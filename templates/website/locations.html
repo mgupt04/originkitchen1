@@ -1,0 +1,70 @@
+<!-- website/templates/locations.html -->
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Origin Kitchen - Locations{% endblock %}
+
+{% block content %}
+
+  <!-- Locations Section -->
+  <section class="ok-locations-section" style="margin: 30px;">
+   <center style="margin: 40px;"><p style="font-size: 1.1rem; color: #6b8e5a; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 0.5rem 0; font-weight: 600; font-family: inherit;">
+  Here Is
+</p>
+<h2 style="font-size: 2.8rem; color: #3A6F47; font-weight: 700; margin: 0; font-family: inherit; line-height: 1.2; letter-spacing: 1px;">
+  Our Locations
+</h2>
+</center>
+  <div class="container">
+    <div class="ok-locations-search-bar">
+  <input type="text" id="locationSearch" placeholder="Search locations..." />
+  <button type="button" onclick="filterLocations()">
+    <i class="bi bi-search"></i> Search
+  </button>
+</div>
+
+    <div class="ok-locations-grid">
+      {% for location in locations %}
+        <div class="ok-locations-card ok-locations-animate-on-scroll">
+          <h2 class="ok-locations-title">{{ location.name }}</h2>
+          <div class="section-divider"></div>
+          <div class="ok-locations-info">
+            <p><i class="bi bi-geo-alt-fill"></i> {{ location.address }}</p>
+            <p><i class="bi bi-telephone-fill"></i> {{ location.phone }}</p>
+            <p><i class="bi bi-clock-fill"></i> {{ location.hours }}</p>
+          </div>
+          <a href="{% url 'reservation' %}" class="btn-primary">Schedule Reservation</a>
+        </div>
+      {% empty %}
+        <p class="ok-locations-no-locations">No locations found.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('ok-locations-visible');
+      }
+    });
+  });
+
+  document.querySelectorAll('.ok-locations-animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+<script>
+  function filterLocations() {
+    const search = document.getElementById("locationSearch").value.toLowerCase();
+    const cards = document.querySelectorAll(".ok-locations-card");
+
+    cards.forEach(card => {
+      const name = card.querySelector(".ok-locations-title").textContent.toLowerCase();
+      card.style.display = name.includes(search) ? "block" : "none";
+    });
+  }
+</script>
+
+{% endblock %}

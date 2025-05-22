@@ -1,0 +1,22 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Sustainability{% endblock %}
+
+{% block content %}
+
+  <!-- Include Font Awesome for Arrows -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'website/styles.css' %}">
+
+ <div class="moresec">
+    <a href="{% url 'sus' %}" class="backLink">&larr; Back</a>
+
+    <h1 class="moreTitle">Upcycled Ingredients</h1>
+
+
+    <center><p class="paragraphmore">
+      We exercise a circular economy to lessen our ecological footprint. Circular economic practices ensure that many of our resources are being reused and reintegrated back into the system. For example, we compost all of our organic food waste and give it to local farms to nurture soil health, which in turn supports the growing process of fresh and sustainable produce destined for our menu. Used cooking oil has been collected and converted to biofuel, thereby reducing dependence on fossil fuels. Packaging materials, such as biodegradable containers, are designed to break down naturally to reduce environmental impact. In addition, we have established good cooperation with suppliers who share circular economy principles—that is, upcycling by-products from agriculture into innovative, high-quality ingredients. The above initiatives are our way of working towards a closed-loop system where nothing goes to waste and every resource is utilized for a sustainable future.
+    </p></center>
+  </div>
+
+{% endblock %}

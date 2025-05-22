@@ -1,0 +1,1837 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Sustainability{% endblock %}
+
+{% block content %}
+
+  <!-- Include Font Awesome for Arrows -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'website/styles.css' %}">
+
+  <!-- Hero Section -->
+  <section class="about-hero" style="background-image: url('{% static 'bc.jpg' %}');">
+     <div class="dark-overlay"></div>
+    <div class="hero-overlay">
+      <h1 style="color: white;" class="hero-title"><span style=" padding: 10px;"> Origin Kitchen</span></h1>
+      <p style="color: white;" class="hero-subtitle"><span style=" padding: 10px;">Ethical sourcing and zero-waste kitchens, everything is to make a greener planet.    
+</span></p>
+    </div>
+  </section>
+
+  <!-- Introduction Section -->
+  
+
+  <section class="sustainableimpact">
+    <div class="sustainableheader">
+      <h2>Zero Waste, Maximum Impact</h2>
+      <div class="sustainableinfo">
+        <p><strong>Waste less, serve more, and sustainable.</strong></p>
+      </div>
+    </div>
+    <div class="sustainabledata">
+      <div class="sustainablearea" data-percent="90">
+        <div class="sustainablecircle">
+          <div class="sustainablecircleinside">
+            <span class="sustainablenumbers">0%</span>
+          </div>
+        </div>
+        <div class="sustainableline"></div>
+        <h3>90% Reduction in Food Waste</h3>
+      </div>
+      <div class="sustainablearea" data-percent="100">
+        <div class="sustainablecircle">
+          <div class="sustainablecircleinside">
+            <span class="sustainablenumbers">0%</span>
+          </div>
+        </div>
+        <div class="sustainableline"></div>
+        <h3>100% Biodegradable Packaging</h3>
+      </div>
+      <div class="sustainablearea" data-percent="30">
+        <div class="sustainablecircle">
+          <div class="sustainablecircleinside">
+            <span class="sustainablenumbers">0%</span>
+          </div>
+        </div>
+        <div class="sustainableline"></div>
+        <h3>30% Less Carbon Emissions</h3>
+      </div>
+    </div>
+    <h4><b> <u> We follow the practices of the circular economy using the least amount of environmental degradation: </u></b> </b></h4>
+    </h4>
+<section class="process-section">
+  <div class="container">
+    <div class="process-grid">
+      <div class="process-card">
+  <div class="step-number">01</div>
+  <i class="fa-solid fa-dumpster" style="font-size: 65px; color:#2F5F4A;"></i>
+  <h3 class="step-title">Compositing</h3>
+  <p class="step-description">
+    Organic food waste is composted and provided to local farms, enriching soil and supporting fresh, sustainable produce
+  </p>
+</div>
+
+
+      <div class="process-card">
+  <div class="step-number">02</div>
+  <i class="fa-solid fa-oil-well" style="font-size: 65px; color:#2F5F4A;"></i>
+  <h3 class="step-title">Oil Conversion</h3>
+  <p class="step-description">
+    Used cooking oil is repurposed into biofuel, reducing dependence on fossil fuels.
+  </p>
+</div>
+
+
+
+      <div class="process-card">
+  <div class="step-number">03</div>
+  <i class="fa-solid fa-boxes-packing" style="font-size: 65px; color:#2F5F4A;"></i>
+  <h3 class="step-title">Packaging & upcycling</h3>
+  <p class="step-description">
+    Biodegradable containers naturally decompose, minimizing environmental impact. We upcycle agricultural by-products into high-quality
+  </p>
+</div>
+    </div>
+  </div>
+</section>
+
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sustainableAreas = document.querySelectorAll('.sustainablearea');
+      const startAnimation = (circle, number, percent) => {
+        let currentPercent = 0;
+        const interval = setInterval(() => {
+          currentPercent++;
+          circle.style.background = `conic-gradient(mediumseagreen ${currentPercent}%, #ccc ${currentPercent}%)`;
+          number.innerText = `${currentPercent}%`;
+          if (currentPercent >= percent) {
+            clearInterval(interval);
+          }
+        }, 20);
+      };
+      const handleScroll = () => {
+        sustainableAreas.forEach((area) => {
+          const rect = area.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0 && !area.classList.contains('active')) {
+            area.classList.add('active');
+            const circle = area.querySelector('.sustainablecircle');
+            const number = area.querySelector('.sustainablenumbers');
+            const percent = parseInt(area.getAttribute('data-percent'));
+            startAnimation(circle, number, percent);
+          }
+        });
+      };
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+    });
+  </script>
+
+  <!-- Farm to Table Section -->
+  <section class="about-section farm-to-table animate-on-scroll">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-text slide-in-left">
+          <h2 class="section-title">Farm to Table</h2>
+          <div class="section-divider"></div>
+          <ul>
+            <li><strong>Organic Sourcing</strong>: Partner with local farmers for authentic, pesticide-free produce.</li>
+            <li><strong>Transparency</strong>: Open kitchen and QR codes show ingredient origins.</li>
+            <li><strong>Sustainable Practices</strong>: Use crop rotation and seasonal crops to maintain soil health.</li>
+            <li><strong>Community Connection</strong>: Host farm-to-table events to meet farmers.</li>
+          </ul>
+        </div>
+        <div class="section-image slide-in-right">
+          <img src="{% static 'a.jpg' %}" alt="Farm to Table">
+          <p class="image-credit">Image by <a href="https://unsplash.com/photos/assorted-vegetables-on-brown-wooden-table-5u_9tHe0jM" target="_blank">Unsplash</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  
+   <div class="qualitiesbox">
+   <h1> Our Key Qualities </h1>
+    <div class="qualities">
+        <div class="qualitysection">
+            <div class="qualitybox">
+                <div class="qualityboxicon"><i class="fa-solid fa-boxes-packing" style="font-size: 65px; color:#2F5F4A; margin: 30px;"></i></div> <!--https://cdn3.vectorstock.com/i/1000x1000/82/82/sustainable-development-glyph-icon-for-personal-vector-47458282.jpg -->
+                <div class="qualityboxtitle">Upcycling Agriculture</div>
+                <div class="qualityboxdescription">
+                   We work with suppliers to upcycle agricultural by-products and creating flavors while reducing food waste.
+                </div>
+				<div class ="more"> 
+					<a href="{% url 'u' %}" style="color: #2F5F4A; margin: auto;"> <p> <b>Read More →</b></p> </a>
+				</div>
+            </div>
+            <div class="qualitybox">
+                <div class="qualityboxicon"><i class="fa-solid fa-location-dot" style="font-size: 65px; color:#2F5F4A; margin: 30px;"></i></div> <!--https://static.thenounproject.com/png/58368-200.png-->
+                <div class="qualityboxtitle">Locally Grown</div>
+                <div class="qualityboxdescription">
+                    We work with local organic farms to bring fresh produce for you while also supporting small farmers and protecting the environment.
+                </div>
+				<div class ="more"> 
+					<a href="{% url 'l' %}" style="color: #2F5F4A; margin: auto;"> <p> <b>Read More →</b></p> </a>
+				</div>
+            </div>
+            <div class="qualitybox">
+                <div class="qualityboxicon"><i class="fa-solid fa-water" style="font-size: 65px; color:#2F5F4A; margin: 30px;"></i></div> <!-- https://media.istockphoto.com/id/1183430297/vector/save-water-icon-vector-design.jpg?s=612x612&w=0&k=20&c=YXDyMC8s4U6FKqwD95xYw2W3e_CONmIE-My7K6kOkKY= -->
+                <div class="qualityboxtitle">Water Efficient</div>
+                <div class="qualityboxdescription">
+                    High quality faucets and greywater recycling, aiming to cut water usage without compromising efficiency.
+                </div>
+				<div class ="more"> 
+					<a href="{% url 'w' %}" style="color: #2F5F4A; margin: auto;"> <p> <b>Read More →</b></p> </a>
+				</div>
+            </div>
+            <div class="qualitybox">
+                <div class="qualityboxicon"><i class="fa-solid fa-hand-holding-medical" style="font-size: 65px; color:#2F5F4A; margin: 30px;"></i></div>
+                <div class="qualityboxtitle">Food Donation</div>
+                <div class="qualityboxdescription">
+                    We support our community and distrubute food to nearby locations to help others out and distribute the leftovers
+                </div>
+				<div class ="more"> 
+					<a href="{% url 'f' %}" style="color: #2F5F4A; margin: auto;"> <p> <b>Read More →</b></p> </a>
+				</div>
+            </div>
+            <div class="qualitybox">
+                <div class="qualityboxicon"><i class="fa-solid fa-solar-panel" style="font-size: 65px; color:#2F5F4A; margin: 30px;"></i></div> <!--https://static.thenounproject.com/png/904430-200.png-->
+                <div class="qualityboxtitle">Energy Efficient</div>
+                <div class="qualityboxdescription">
+                   Our kitchens are powered by energy-efficient appliances and LED lighting to reduce emissions and maximize efficiency.
+                </div>
+				<div class ="more"> 
+					<a href="{% url 'e' %}" style="color: #2F5F4A; margin: auto;"> <p> <b>Read More →</b></p> </a>
+				</div>
+            </div>
+            <div class="qualitybox">
+                <div class="qualityboxicon"><i class="fa-solid fa-sheet-plastic" style="font-size: 65px; color:#2F5F4A; margin: 30px;"></i></div> <!--https://cdn-icons-png.flaticon.com/512/2666/2666715.png-->
+                <div class="qualityboxtitle">Plastic Free</div>
+                <div class="qualityboxdescription">
+                   We eliminated single-use plastics and embraced biodegradable materials to create a cleaner, healthier planet.
+                </div>
+				<div class ="more"> 
+					<a href="{% url 'p' %}" style="color: #2F5F4A; margin: auto;"> <p> <b>Read More →</b></p> </a>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  <!-- Sustainability Section -->
+  <section class="about-section sustainability animate-on-scroll">
+    <div class="container">
+      <div class="section-content">
+        <div class="section-text slide-in-left">
+          <h2 class="section-title">Sustainability</h2>
+          <div class="section-divider"></div>
+          <ul>
+            <li><strong>Zero Waste</strong>: Donate leftovers to food banks and compost scraps.</li>
+            <li><strong>Eco-Friendly Packaging</strong>: Use biodegradable containers and palm leaf plates.</li>
+            <li><strong>Green Energy</strong>: Solar-powered appliances and electric delivery vehicles.</li>
+            <li><strong>Community Engagement</strong>: Offer discounts for reusable containers and host sustainability workshops.</li>
+          </ul>
+        </div>
+        <div class="section-image slide-in-right">
+          <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" alt="Sustainability">
+          <p class="image-credit">Image by <a href="https://unsplash.com/photos/white-and-black-solar-panel-system-on-green-grass-field-under-blue-sky-during-daytime-fd_9tHe0jM" target="_blank">Unsplash</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Timeline Section -->
+  <section class="timeline">
+    <div class="timelineheader">
+      <h2>Farm-to-Table Journey Timeline: A Step-by-Step Sustainable Process</h2>
+      <p>Every step marks a step closer to our aim of a greener, healthier world.</p>
+    </div>
+    <div class="timelinearea">
+      <div class="timeline-line"></div>
+      <div class="timeline-event" id="step-1">
+        <div class="timecircle"><span>1</span></div>
+        <div class="timebox">
+          <div class="timequalitybox">
+            <div class="timeinfo">
+              <h3>It All Begins at the Farm</h3>
+              <p>"We partner with local farms that share our vision for sustainability and ethical practices."</p>
+              <ul>
+                <p>- 90% locally sourced produce.</p>
+                <p>- Fair trade agreements with farmers.</p>
+                <p>- Seasonal ingredients to reduce carbon footprint.</p>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-event" id="step-2">
+        <div class="timecircle"><span>2</span></div>
+        <div class="timebox">
+          <div class="timequalitybox">
+            <div class="timeinfo">
+              <h3>Fresh from the Field</h3>
+              <p>"Every ingredient is looked carefully and is fresh."</p>
+              <ul>
+                <p>- Harvested daily for peak freshness.</p>
+                <p>- Zero delays in ingredient transportation.</p>
+                <p>- Reduced food miles for minimal carbon impact.</p>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-event" id="step-3">
+        <div class="timecircle"><span>3</span></div>
+        <div class="timebox">
+          <div class="timequalitybox">
+            <div class="timeinfo">
+              <h3>Straight to Our Kitchen</h3>
+              <p>"Our produce travels a short distance from the farm to our kitchen."</p>
+              <ul>
+                <p>- Eco-friendly delivery methods.</p>
+                <p>- Reusable and minimal packaging.</p>
+                <p>- Cold-chain logistics for temperature-sensitive produce.</p>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-event" id="step-4">
+        <div class="timecircle"><span>4</span></div>
+        <div class="timebox">
+          <div class="timequalitybox">
+            <div class="timeinfo">
+              <h3>Crafting with Care</h3>
+              <p>"Our chefs transform fresh produce into delicious dishes using innovative techniques while minimizing waste and energy usage."</p>
+              <ul>
+                <p>- Zero-waste kitchen practices.</p>
+                <p>- Energy-efficient kitchen appliances.</p>
+                <p>- Innovative preparation techniques for flavor retention.</p>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-event" id="step-5">
+        <div class="timecircle"><span>5</span></div>
+        <div class="timebox">
+          <div class="timequalitybox">
+            <div class="timeinfo">
+              <h3>Waste Not, Want Not</h3>
+              <p>"We have a zero-waste philosophy in our kitchen. Every scrap is used, and is composted, repurposed, or used creatively."</p>
+              <ul>
+                <p>- Composting food scraps.</p>
+                <p>- Reusable packaging for deliveries.</p>
+                <p>- Creative use of leftover ingredients in soups and sauces.</p>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-event" id="step-6">
+        <div class="timecircle"><span>6</span></div>
+        <div class="timebox">
+          <div class="timequalitybox">
+            <div class="timeinfo">
+              <h3>The Perfect Plate</h3>
+              <p>"Every dish is served with fresh, vibrant, and designed to delight your senses. We believe in a dining experience that’s helpful for both you and the planet."</p>
+              <ul>
+                <p>- Minimal plastic usage in plating.</p>
+                <p>- Natural and biodegradable serving materials.</p>
+                <p>- Focus on balanced nutrition and flavor.</p>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript for Animations -->
+  <script>
+    // Scroll Animation for Elements with .animate-on-scroll
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    const observerOptions = {
+      root: null,
+      threshold: 0.2,
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    animateElements.forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+
+  <style>
+    @font-face {
+      font-family: webflow-icons;
+      src: url("data:application/x-font-ttf;charset=utf-8;base64,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") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Butler';
+      src: url('https://cdn.prod.website-files.com/670f7ea49b9dfdd5b6fb31b4/6712288436687e9d40d1c2da_Butler_Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Butler';
+      src: url('https://cdn.prod.website-files.com/670f7ea49b9dfdd5b6fb31b4/671228844bde86400c480fbd_Butler_Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* About Us Page Styles */
+    /* About Hero Section */
+    .about-hero {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/main/b.png');
+      background-size: cover;
+      background-position: center;
+      height: 40vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .about-hero .hero-overlay {
+      color: #F5F5F0;
+      text-align: center;
+      padding: 2rem;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .about-hero .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      font-family: 'Butler', sans-serif;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    .about-hero .hero-subtitle {
+      font-size: 1.3rem;
+      font-weight: 400;
+      opacity: 0;
+      animation: fadeInDown 1s ease forwards 0.3s;
+    }
+
+    .about-hero .hero-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      fill: #F5F5F0;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .about-hero .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .about-hero .hero-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    /* About Intro Section */
+    .about-intro {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #F5F5F0, #EDEDE8);
+      text-align: center;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .about-intro .container {
+      max-width: 900px;
+    }
+
+    .about-intro p {
+      font-size: 1.1rem;
+      color: #2A2A2A;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    /* General About Section Styles */
+    .about-section {
+      padding: 5rem 2rem;
+      position: relative;
+    }
+
+    .about-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .about-section:nth-child(even) {
+      background-color: #EDEDE8;
+    }
+
+
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background-color: #3A6F47;
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    .section-content {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .section-content.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .section-text {
+      flex: 1;
+    }
+
+    .section-text h2 {
+      font-size: 2.8rem;
+      font-family: 'Butler', sans-serif;
+      color: #3A6F47;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .section-text p {
+      font-size: 1.1rem;
+      color: #2A2A2A;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-text ul {
+      list-style: disc;
+      padding-left: 2rem;
+      margin-top: 1rem;
+    }
+
+    .section-text li {
+      font-size: 1.1rem;
+      color: #2A2A2A;
+      line-height: 1.9;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .section-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-credit {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    .image-credit a {
+      color: #3A6F47;
+      text-decoration: none;
+    }
+
+    .image-credit a:hover {
+      color: #5A9A5E;
+    }
+
+    @media (max-width: 768px) {
+      .section-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .section-content.reverse {
+        flex-direction: column;
+      }
+
+      .section-image img {
+        max-width: 100%;
+      }
+
+      .section-text h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Fade-In Animation for Sections */
+    .animate-on-scroll {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    /* Slide-In Animation for Text and Images */
+    .slide-in-left {
+      opacity: 0;
+      animation: slideInLeft 0.8s ease forwards;
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      animation: slideInRight 0.8s ease forwards;
+    }
+
+    /* Our Values Section with 3D Card Flip */
+    .our-values .section-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .hover-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #2A2A2A;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .values-cards {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .value-card {
+      perspective: 1000px;
+      width: 350px;
+      height: 450px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+    }
+
+    .value-card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #F5F5F0 0%, #EDEDE8 100%);
+      border: 1px solid rgba(58, 111, 71, 0.2);
+    }
+
+    .card-front {
+      transform: rotateY(0deg);
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(135deg, #EDEDE8 0%, #DDE5D5 100%);
+    }
+
+    .card-front h3,
+    .card-back h3 {
+      font-size: 1.8rem;
+      color: #3A6F47;
+      font-family: 'Butler', sans-serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-front .card-subtitle,
+    .card-back .card-subtitle {
+      font-size: 1rem;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      color: #3A6F47;
+      margin-bottom: 1rem;
+    }
+
+    .card-front p,
+    .card-back p {
+      font-size: 1rem;
+      color: #2A2A2A;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .value-card {
+        width: 100%;
+        max-width: 300px;
+        height: 400px;
+      }
+
+      .card-front,
+      .card-back {
+        padding: 1.5rem;
+      }
+
+      .card-front h3,
+      .card-back h3 {
+        font-size: 1.5rem;
+      }
+
+      .card-front p,
+      .card-back p {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Menu Section with Sticky Image */
+    .menu .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .menu-content {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+
+    .menu-image-sticky {
+      width: 40%;
+      position: sticky;
+      top: 3rem;
+      height: 60vh;
+      text-align: center;
+    }
+
+    .menu-image-sticky img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-categories {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .menu-category {
+      background: #F5F5F0;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+    }
+
+    .menu-category.visible {
+      opacity: 1;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .menu-category h3 {
+      font-size: 1.8rem;
+      color: #3A6F47;
+      font-family: 'Butler', sans-serif;
+      margin-bottom: 1.5rem;
+    }
+
+    .menu-category p {
+      font-size: 1rem;
+      color: #2A2A2A;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .menu-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .menu-image-sticky {
+        width: 100%;
+        position: static;
+        height: auto;
+      }
+
+      .menu-image-sticky img {
+        height: 300px;
+      }
+
+      .menu-categories {
+        width: 100%;
+        gap: 2rem;
+      }
+
+      .menu-category {
+        padding: 1.5rem;
+      }
+
+      .menu-category h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .features {
+      text-align: center;
+      margin: 40px auto;
+      padding: 20px;
+      width: 90%;
+      position: relative;
+    }
+
+    .titlefeature {
+      font-size: 19px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-family: butler;
+    }
+
+    .titlefeature span {
+      font-size: 2.8rem;
+      font-family: 'Butler', sans-serif;
+      color: #3A6F47;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .subb {
+      margin-top: 10px;
+      margin-bottom: 0px;
+      font-size: 1.1rem;
+      color: #555;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .subt {
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      font-family: 'Poppins', sans-serif;
+      color: #777;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: space-between;
+      gap: 60px;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 1200px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    .card {
+      background: #f6f8f3;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 30%;
+      margin-bottom: 20px;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .cardinfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    .cardinfo h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #2A2A2A;
+      font-family: 'Butler', sans-serif;
+    }
+
+    .cardinfo p {
+      font-size: 12px;
+      font-family: 'Poppins', sans-serif;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .cardinfo .description {
+      font-size: 14px;
+      margin-bottom: 15px;
+      font-family: 'Poppins', sans-serif;
+      color: #555;
+    }
+
+    .morecard {
+      background-color: #f6f8f3;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      font-family: 'Poppins', sans-serif;
+      color: #777;
+      padding: 8px 15px;
+      border: 2px solid #77a740;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .about-us-button:hover {
+      background-color: #8d6f3d;
+      color: #f0f0f0;
+    }
+
+    @media (max-width: 1000px) {
+      .titlefeature {
+        font-size: 20px;
+      }
+
+      .titlefeature span {
+        font-size: 30px;
+      }
+
+      .cards {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .card {
+        width: 80%;
+        margin: 0 auto 15px;
+      }
+
+      .card img {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .titlefeature {
+        font-size: 18px;
+      }
+
+      .titlefeature span {
+        font-size: 26px;
+      }
+
+      .card {
+        width: 90%;
+        margin: 0 auto 10px;
+      }
+
+      .card img {
+        height: 140px;
+      }
+
+      .morecard {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+    }
+
+    .why {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      padding: 5% 5%;
+      width: 100%;
+    }
+
+    .areawhy {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 5%;
+      max-width: 90%;
+      width: 100%;
+    }
+
+    .imgarea {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      border-radius: 2%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: 50%;
+    }
+
+    .imgabt {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2%;
+    }
+
+    .imgabt img {
+      width: 100%;
+      height: 550px;
+      object-fit: cover;
+    }
+
+    .textarea {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      padding: 2%;
+      width: 50%;
+    }
+
+    .textarea h1 {
+      font-size: 8vw;
+      color: #333;
+      font-family: 'Butler', sans-serif;
+      background-image: url("abtushero.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      margin-bottom: 0;
+      line-height: 1;
+      font-weight: bold;
+    }
+
+    .textarea h3 {
+      font-size: 3.2vw;
+      color: #333;
+      font-family: 'Butler', sans-serif;
+      background-image: url("abtushero.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      font-weight: bold;
+      background-clip: text;
+      -webkit-background-clip: text;
+      margin-top: 0;
+      line-height: 1;
+    }
+
+    .textarea h4 {
+      font-size: 1.2rem;
+      color: #777;
+      margin-bottom: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+    }
+
+    .textarea h2 {
+      font-size: 2.8rem;
+      font-family: 'Butler', sans-serif;
+      color: #2F5F4A;
+      margin-top: 15px;
+    }
+
+    .textarea p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btnwhy {
+      background-color: #2F5F4A;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      width: 35%;
+      text-align: center;
+    }
+
+    .btnwhy:hover {
+      background-color: darkgreen;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    @media (max-width: 1024px) {
+      .areawhy {
+        flex-direction: column;
+        gap: 5%;
+        width: 90%;
+      }
+
+      .imgarea {
+        width: 80%;
+      }
+
+      .textarea {
+        width: 80%;
+        text-align: center;
+      }
+
+      .textarea h1 {
+        font-size: 10vw;
+      }
+
+      .textarea h3 {
+        font-size: 4vw;
+      }
+
+      .textarea h2 {
+        font-size: 1.8rem;
+      }
+
+      .textarea p {
+        font-size: 0.9rem;
+      }
+
+      .btnwhy {
+        font-size: 0.9rem;
+        width: 50%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .why {
+        padding: 5% 5%;
+      }
+
+      .areawhy {
+        flex-direction: column;
+        gap: 5%;
+        width: 95%;
+      }
+
+      .imgarea {
+        width: 90%;
+      }
+
+      .textarea {
+        width: 90%;
+      }
+
+      .textarea h1 {
+        font-size: 12vw;
+      }
+
+      .textarea h3 {
+        font-size: 5vw;
+      }
+
+      .textarea h2 {
+        font-size: 1.5rem;
+      }
+
+      .textarea p {
+        font-size: 0.8rem;
+      }
+
+      .btnwhy {
+        font-size: 0.8rem;
+        width: 60%;
+      }
+
+      .imgabt img {
+        height: 300px;
+      }
+
+      .imgarea {
+        max-height: 300px;
+      }
+
+      .btnwhy {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+      }
+
+      .textarea {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .areawhy {
+        gap: 10%;
+        width: 100%;
+      }
+
+      .imgarea {
+        width: 95%;
+      }
+
+      .textarea {
+        width: 95%;
+        text-align: center;
+      }
+
+      .textarea h1 {
+        font-size: 15vw;
+      }
+
+      .textarea h3 {
+        font-size: 6vw;
+      }
+
+      .textarea h2 {
+        font-size: 1.3rem;
+      }
+
+      .textarea p {
+        font-size: 0.75rem;
+      }
+
+      .btnwhy {
+        font-size: 0.75rem;
+        padding: 8px 15px;
+        width: 70%;
+      }
+
+      .imgabt img {
+        height: 300px;
+      }
+
+      .imgarea {
+        max-height: 300px;
+      }
+
+      .btnwhy {
+        display: block;
+        margin: 15px auto;
+        width: 60%;
+        text-align: center;
+      }
+    }
+
+    .scroll-animation {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .scroll-animation.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sustainableimpact {
+      text-align: center;
+      padding: 80px 5%; /* Increased padding for more vertical space */
+    }
+
+    .sustainableheader h2 {
+      font-size: 3rem;
+      font-family: 'Butler', sans-serif;
+      color: #3A6F47;
+      margin-bottom: 2rem; /* Increased margin */
+      letter-spacing: 1px;
+    }
+
+    .sustainableinfo {
+      color: #555;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 200;
+      line-height: 1.2;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 3rem; /* Increased margin */
+    }
+
+    .sustainabledata {
+      display: flex;
+      justify-content: center;
+      gap: 60px; /* Increased gap */
+      flex-wrap: wrap;
+      margin-bottom: 4rem; /* Increased margin */
+    }
+
+    .sustainablearea {
+      text-align: center;
+      width: 250px;
+      position: relative;
+      margin-bottom: 2rem; /* Added vertical spacing */
+    }
+
+    .sustainablearea.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sustainablecircle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: conic-gradient(#ccc 0%, #ccc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .sustainablecircle:hover {
+      transform: scale(1.05);
+    }
+
+    .sustainablecircle::after {
+      content: '';
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .sustainablecircleinside {
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .sustainablenumbers {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .sustainableline {
+      width: 60%;
+      height: 4px;
+      background: mediumseagreen;
+      border-radius: 2px;
+       margin: 10px auto;
+    }
+
+    .sustainablearea h3 {
+      margin-top: 15px; /* Increased margin */
+      color: #555;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 200;
+      line-height: 1.2;
+      font-size: 1rem;
+    }
+
+    .sustainableimpact h4 {
+      margin: 3rem auto; /* Increased margin */
+      margin-bottom: 0;
+      color: #555;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 200;
+      line-height: 1.2;
+      font-size: 1.3rem;
+      max-width: 800px;
+    }
+
+    .sustainableimpact h4 ul {
+      list-style: disc;
+      padding-left: 2rem;
+      text-align: left;
+      margin-top: 1rem;
+    }
+
+    .sustainableimpact h4 li {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.9;
+    }
+
+    @media (max-width: 768px) {
+      .sustainableheader h2 {
+        font-size: 2rem;
+      }
+
+      .sustainablecircle {
+        width: 120px;
+        height: 120px;
+      }
+
+      .sustainablecircle::after {
+        width: 100px;
+        height: 100px;
+      }
+
+      .sustainablecircleinside {
+        width: 100px;
+        height: 100px;
+      }
+
+      .sustainablenumbers {
+        font-size: 1.5rem;
+      }
+
+      .sustainableline {
+        width: 50%;
+      }
+
+      .sustainablearea h3 {
+        font-size: 1rem;
+      }
+
+      .sustainableinfo p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sustainableheader h2 {
+        font-size: 1.8rem;
+      }
+
+      .sustainablecircle {
+        width: 100px;
+        height: 100px;
+      }
+
+      .sustainablecircle::after {
+        width: 80px;
+        height: 80px;
+      }
+
+      .sustainablecircleinside {
+        width: 80px;
+        height: 80px;
+      }
+
+      .sustainablenumbers {
+        font-size: 1.2rem;
+      }
+
+      .sustainableline {
+        width: 40%;
+      }
+
+      .sustainablearea h3 {
+        font-size: 0.9rem;
+      }
+
+      .sustainableinfo p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .process-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      gap: 30px; /* Increased gap for vertical spacing */
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .step-box {
+      width: 100%;
+      max-width: 300px;
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .step-image {
+      width: 100%;
+      height: auto;
+      margin: 0 auto 10px;
+      border-radius: 4px;
+    }
+
+    .step-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #2A2A2A;
+      font-family: 'Butler', sans-serif;
+    }
+
+    .step-description {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .arrow-icon {
+      font-size: 2rem;
+      color: #3A6F47;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+      .process-flow {
+        gap: 20px;
+      }
+
+      .step-box {
+        max-width: 280px;
+      }
+
+      .step-title {
+        font-size: 18px;
+      }
+
+      .step-description {
+        font-size: 12px;
+      }
+
+      .arrow-icon {
+        font-size: 1.5rem;
+        margin: 15px 0;
+      }
+    }
+
+    .timeline {
+      padding: 60px 5%;
+      position: relative;
+    }
+
+    .timelineheader {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .timelineheader h2 {
+      font-size: 2.5rem;
+      font-family: 'Butler', sans-serif;
+      color: #3A6F47;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .timelineheader p {
+      color: #555;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 200;
+      line-height: 1.2;
+      font-size: 1.2rem;
+    }
+
+    .timelinearea {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 16%;
+      width: 4px;
+      height: 100%;
+      background: #3A6F47;
+      z-index: 0;
+    }
+
+    .timecircle {
+      position: absolute;
+      left: 16%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      background: #3A6F47;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: 0 4px 10px rgba(108, 99, 255, 0.3);
+    }
+
+    .timeline-event {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .timebox img {
+      width: 45%;
+      height: 250px;
+    }
+
+    .timebox {
+      position: relative;
+      background: #fff;
+      color: #333;
+      padding: 50px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      margin-left: 30%;
+      width: 60%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .timeinfo h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: rgb(42, 42, 42);
+      font-family: Butler, sans-serif;
+    }
+
+    .timeinfo p {
+      font-size: 0.9rem;
+      color: #2A2A2A;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 1200px) {
+      .timelineheader h2 {
+        font-size: 3rem;
+      }
+
+      .timebox {
+        margin-left: 30%;
+        width: 55%;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .timeline-line {
+        left: 10%;
+      }
+
+      .timecircle {
+        left: 10%;
+      }
+
+      .timebox {
+        margin-left: 20%;
+        width: 70%;
+      }
+
+      .timebox img {
+        width: 30%;
+      }
+
+      .timeinfo h3 {
+        font-size: 1.2rem;
+      }
+
+      .timeinfo p {
+        font-size: 0.9rem;
+      }
+
+      .timeinfo ul {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .timelineheader h2 {
+        font-size: 2rem;
+      }
+
+      .timecircle {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+        left: 8%;
+      }
+
+      .timeline-line {
+        left: 8%;
+      }
+
+      .timebox {
+        margin-left: 15%;
+        width: 75%;
+      }
+
+      .timebox img {
+        width: 35%;
+        height: 120px;
+      }
+
+      .timeinfo h3 {
+        font-size: 1rem;
+      }
+
+      .timeinfo p {
+        font-size: 0.9rem;
+      }
+
+      .timeinfo ul {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .timelineheader h2 {
+        font-size: 1.5rem;
+      }
+
+      .timelineheader p {
+        font-size: 0.9rem;
+      }
+
+      .timeline-line {
+        left: 7%;
+      }
+
+      .timecircle {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+        left: 7%;
+      }
+
+      .timebox {
+        margin-left: 10%;
+        width: 80%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .timebox img {
+        width: 100%;
+        height: 100px;
+      }
+
+      .timeinfo h3 {
+        font-size: 0.9rem;
+      }
+
+      .timeinfo p {
+        font-size: 0.7rem;
+      }
+
+      .timeinfo ul {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+{% endblock %}

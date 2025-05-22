@@ -1,0 +1,332 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Place Order - Origin Kitchen{% endblock %}
+
+{% block content %}
+<div class="place-order-container">
+  <!-- Thank You Screen -->
+  <div class="thank-you-card hidden" role="alert">
+    <i class="bi bi-check-circle-fill success-icon"></i>
+    <h1>Thank You for Your Reservation!</h1>
+    <p class="thank-you-message">
+      Our team is so glad that you've decided to book with us! You'll hear from us soon with updates.
+    </p>
+    <div class="thank-you-actions">
+      <a href="{% url 'menu' %}" class="btn btn-primary">Explore Our Menu</a>
+      <a href="{% url 'blog' %}" class="btn btn-outline">Read Our Blog</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Container */
+  .place-order-container {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  /* Hidden Class */
+  .hidden {
+    display: none;
+  }
+
+  /* Order Card */
+  .order-card {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95) url('{% static "website/images/order-bg.jpg" %}') no-repeat center/cover;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .order-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .order-step {
+    font-size: 1.2rem;
+    color: #6b7280;
+    margin-bottom: 25px;
+  }
+
+  .order-subheader {
+    font-size: 1.4rem;
+    color: #4b5563;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+
+  /* Form */
+  .order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .form-group {
+    text-align: left;
+  }
+
+  .form-group label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1.1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.9);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .form-group input:focus {
+    border-color: #27ae60;
+    box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.15);
+  }
+
+  .form-text {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-top: 6px;
+    display: block;
+  }
+
+  .btn-primary {
+    background: #27ae60;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background: #219653;
+    transform: translateY(-3px);
+  }
+
+  /* Alert */
+  .alert-danger {
+    background: #fef2f2;
+    color: #991b1b;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 1rem;
+  }
+
+  .alert-danger i {
+    margin-right: 10px;
+  }
+
+  .alert-danger ul {
+    margin: 10px 0 0 20px;
+  }
+
+  /* Thank You Card */
+  .thank-you-card {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95) url('{% static "website/images/order-bg.jpg" %}') no-repeat center/cover;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .success-icon {
+    font-size: 4rem;
+    color: #27ae60;
+    margin-bottom: 20px;
+  }
+
+  .thank-you-card h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .thank-you-message {
+    font-size: 1.4rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 600px;
+  }
+
+  .thank-you-message strong {
+    color: #27ae60;
+  }
+
+  .thank-you-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline {
+    background: #ffffff;
+    color: #27ae60;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 30px;
+    border: 1px solid #27ae60;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-outline:hover {
+    background: #27ae60;
+    color: #ffffff;
+    transform: translateY(-3px);
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .place-order-container {
+      padding: 30px 15px;
+    }
+
+    .order-card, .thank-you-card {
+      padding: 30px 15px;
+    }
+
+    .order-header h1, .thank-you-card h1 {
+      font-size: 2.5rem;
+    }
+
+    .order-subheader, .thank-you-message {
+      font-size: 1.2rem;
+      max-width: 90%;
+    }
+
+    .thank-you-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .btn-primary, .btn-outline {
+      width: 100%;
+      max-width: 300px;
+      padding: 12px 20px;
+      font-size: 1rem;
+    }
+
+    .form-group input {
+      padding: 12px 16px;
+      font-size: 1rem;
+    }
+
+    .success-icon {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .order-header h1, .thank-you-card h1 {
+      font-size: 2rem;
+    }
+
+    .order-subheader, .thank-you-message {
+      font-size: 1rem;
+    }
+
+    .form-group label, .form-text {
+      font-size: 0.9rem;
+    }
+
+    .success-icon {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.getElementById('order-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const form = this;
+    const formData = new FormData(form);
+    const email = formData.get('email');
+
+    // Send AJAX request
+    fetch('{% url "place_order" %}', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-CSRFToken': '{{ csrf_token }}',
+      },
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        // Hide order card, show thank-you card
+        document.querySelector('.order-card').classList.add('hidden');
+        document.querySelector('.thank-you-card').classList.remove('hidden');
+        // Update email in thank-you message
+        document.querySelector('.email-display').textContent = email;
+      } else {
+        // Show errors
+        const errorContainer = document.createElement('div');
+        errorContainer.className = 'alert alert-danger';
+        errorContainer.innerHTML = `
+          <i class="bi bi-exclamation-circle"></i> Please correct the following errors:
+          <ul>${data.errors.map(error => `<li>${error}</li>`).join('')}</ul>
+        `;
+        form.insertBefore(errorContainer, form.firstChild);
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again.');
+    });
+  });
+</script>
+{% endblock %}

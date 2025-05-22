@@ -1,0 +1,84 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Origin Kitchen - Menu{% endblock %}
+
+{% block content %}
+  <!-- Menu Filter and Items Section -->
+  <section style="background-color: white;" class="menu-section">
+    <center style="margin-bottom: 50px;"><h1 style="font-family: inherit;">Our Menu</h1></center>
+    <div class="container">
+      <!-- Search Bar -->
+      <div class="menu-search slide-in-left">
+        <form method="GET" action="{% url 'menu' %}" class="search-form">
+          <input type="text" name="search" placeholder="Search menu items..." value="{{ search_query|default_if_none:'' }}">
+          <button type="submit" class="search-btn"><i class="bi bi-search"></i></button>
+        </form>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="category-filter slide-in-right">
+        <a href="{% url 'menu' %}?category=appetizers" class="btn {% if category == 'appetizers' %}active{% endif %}">Appetizers</a>
+        <a href="{% url 'menu' %}?category=soups_salads" class="btn {% if category == 'soups_salads' %}active{% endif %}">Salads and Bowls</a>
+        <a href="{% url 'menu' %}?category=mains" class="btn {% if category == 'mains' %}active{% endif %}">Handhelds</a>
+        <a href="{% url 'menu' %}?category=desserts" class="btn {% if category == 'desserts' %}active{% endif %}">Desserts</a>
+        <a href="{% url 'menu' %}?category=drinks" class="btn {% if category == 'drinks' %}active{% endif %}">Drinks</a>
+      </div>
+
+
+
+      <!-- Menu Items -->
+      <div class="menu-items">
+        {% for item in items %}
+          <div class="menu-item animate-on-scroll">
+            <div class="item-details">
+              <div class="item-name">{{ item.name }}</div>
+              <div class="item-desc">{{ item.description }}</div>
+              <div class="item-price-container">
+                <div class="left-add-container">
+                  <div class="item-price">${{ item.price }}</div>
+                  <div class="calories">{{ item.calories }} calories</div>
+                </div>
+                <a href="{% url 'add_to_cart' item.id %}" class="add-btn">+</a>
+              </div>
+            </div>
+          </div>
+        {% empty %}
+          <p class="no-items">
+            {% if search_query %}
+              No items found for "{{ search_query }}".
+            {% elif category %}
+              No items found in the {{ category|title }} category.
+            {% else %}
+              No items found.
+            {% endif %}
+          </p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript for Animations -->
+  <script>
+    // Scroll Animation for Elements with .animate-on-scroll
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+    const observerOptions = {
+      root: null,
+      threshold: 0.2,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    animateElements.forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+{% endblock %}

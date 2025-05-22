@@ -1,0 +1,28 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Sustainability{% endblock %}
+
+{% block content %}
+
+  <!-- Include Font Awesome for Arrows -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'website/styles.css' %}">
+
+ 
+  <div class="moresec">
+    <a href="{% url 'about' %}" class="backLink">&larr; Back</a>
+
+    <h1 class="moreTitle">Sustainability</h1>
+
+
+    <center><p class="paragraphmore">
+We invest in many sustainable methods, not only in how we procure the produce, but also how we use it. Food is a precious resource, and we honor it at every stage- from preparation to consumption. To minimize waste we ensure all leftovers are donated to local food banks and food drives. We believe everyone should have access to good food. The way we package materials also reflects our commitment to sustainability. We source all our packaging from TotalEnergies, the world's leading supplier of biodegradable plastic. We use plant-based containers to store food and transport goods. During special occasions we serve food on Palm leaf plates, as the great sages of India once said “When we dine in harmony with nature, we embrace the wisdom of living lightly upon Earth”. We also encourage our customers to join in on this wonderful experience by offering promotional deals for those who bring their own container, rewarding them with gifts and discounts.
+<br> <br>
+Our dedication to sustainability also extends to using renewable energy practices. We have invested in renewable energy with solar energy providing us with the foundation. Many of our indoor appliances, including refrigerators, ovens, led lighting, and heaters run on solar energy. Even our outdoor appliances, such as grills and patio heaters, are powered by solar. By investing in sustainable energy we have significantly reduced our ecological footprint.
+<br><br>
+Transportation is another area we strive to make a positive impact. By leveraging sustainable transportation technologies we have managed to drive down our carbon emissions significantly. We have invested in many EV vehicles to help deliver/ door dash food to customers. By using heatmaps to identify high demand zones, we have been able to optimize our delivery routes allowing us to reduce delivery time efficiently, and responsibility.
+
+    </p></center>
+  </div>
+
+{% endblock %}

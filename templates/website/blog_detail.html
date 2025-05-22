@@ -1,0 +1,251 @@
+{% extends 'website/base.html' %}
+{% block title %}{{ post.title }} - Origin Kitchen{% endblock %}
+
+{% block content %}
+<div class="blog-detail-container" role="article">
+  <div class="blog-navigation">
+    <a href="{% url 'blog' %}" class="back-to-blog">← Back to Blog</a>
+  </div>
+
+  <div class="blog-detail-header">
+    <h1>{{ post.title }}</h1>
+    <div class="blog-meta">
+      <span>Posted on {{ post.date_posted|date:"F j, Y" }}</span>
+      {% if post.author %}
+      <span>by {{ post.author }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+
+  <div class="blog-detail-content">
+    <center>
+          {% for paragraph in paragraphs %}
+    {% if paragraph|slice:":1" == "#" %}
+      {% if paragraph|slice:":2" == "##" %}
+        <h3>{{ paragraph|slice:"2:"|striptags }}</h3>
+      {% else %}
+        <h2>{{ paragraph|slice:"1:"|striptags }}</h2>
+      {% endif %}
+    {% else %}
+      <p>{{ paragraph|linebreaksbr }}</p>
+    {% endif %}
+    {% endfor %}
+    
+    </center>
+  </div>
+
+</div>
+
+<style>
+  /* Container */
+  .blog-detail-container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 60px 20px;
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  /* Navigation */
+  .blog-navigation {
+    margin-bottom: 30px;
+  }
+
+  .back-to-blog {
+    display: inline-flex;
+    align-items: center;
+    color: #27ae60;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 8px 0;
+  }
+
+  .back-to-blog:hover {
+    color: #219653;
+    transform: translateX(-5px);
+  }
+
+  /* Header */
+  .blog-detail-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .blog-detail-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-meta {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .blog-meta span {
+    display: inline-block;
+  }
+
+  /* Image */
+  .blog-detail-image {
+    margin-bottom: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+  }
+
+  .blog-detail-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Content */
+  .blog-detail-content {
+    line-height: 1.8;
+    color: #4b5563;
+    font-size: 1.1rem;
+  }
+
+  .blog-detail-content h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 30px 0 20px;
+  }
+
+  .blog-detail-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 25px 0 15px;
+  }
+
+  .blog-detail-content p {
+    margin-bottom: 20px;
+  }
+
+  .blog-detail-content strong {
+    font-weight: 600;
+    color: #2c3e50;
+  }
+
+  .blog-detail-content em {
+    font-style: italic;
+  }
+
+  /* Share section */
+  .blog-share {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #e5e7eb;
+    text-align: center;
+  }
+
+  .blog-share h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+
+  .share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .share-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    color: #4b5563;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .share-btn:hover {
+    background: #f3f4f6;
+    border-color: #27ae60;
+    color: #27ae60;
+  }
+
+  .share-btn i {
+    font-size: 1.2rem;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .blog-detail-container {
+      padding: 40px 15px;
+    }
+
+    .blog-detail-header h1 {
+      font-size: 2.2rem;
+    }
+
+    .blog-detail-image {
+      max-height: 250px;
+    }
+
+    .blog-detail-image img {
+      height: 250px;
+    }
+
+    .blog-meta {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .share-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .share-btn {
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .blog-detail-content {
+      font-size: 1rem;
+    }
+
+    .blog-detail-content h2 {
+      font-size: 1.6rem;
+    }
+
+    .blog-detail-content h3 {
+      font-size: 1.4rem;
+    }
+  }
+</style>
+{% endblock %}

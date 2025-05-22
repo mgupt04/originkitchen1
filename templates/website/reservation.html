@@ -1,0 +1,64 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Reservation - Origin Kitchen{% endblock %}
+
+{% block content %}
+  <section class="ok-reservation-section">
+    <div class="container">
+      <h1 class="ok-reservation-header">Plan Your Origin Kitchen Experience!</h1>
+
+     
+
+      <form method="POST" class="ok-reservation-form">
+        {% csrf_token %}
+        <div class="ok-reservation-form-group">
+          <label for="full_name">Full Name:</label>
+          <input type="text" id="full_name" name="full_name" required>
+        </div>
+
+        <div class="ok-reservation-form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="ok-reservation-form-group">
+          <label for="num_guests">Number of Guests:</label>
+          <select id="num_guests" name="num_guests" required>
+            {% for i in "123456789" %}
+              <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="ok-reservation-form-group">
+          <label for="reservation_time">Reservation Time:</label>
+          <input type="datetime-local" id="reservation_time" name="reservation_time" required min="{{ now|date:'Y-m-d\\TH:i' }}">
+        </div>
+
+        <div class="ok-reservation-form-group">
+          <label for="location">Location:</label>
+          <select id="location" name="location" required>
+            <option value="" disabled selected>Select a location</option>
+            {% for location in locations %}
+              <option value="{{ location.id }}">{{ location.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <button type="submit" class="ok-reservation-btn">Finalize Booking</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Set the minimum reservation time to the current time
+    document.addEventListener('DOMContentLoaded', function() {
+      const now = new Date();
+      const offset = now.getTimezoneOffset();
+      now.setMinutes(now.getMinutes() - offset); // Adjust for local timezone
+      const minTime = now.toISOString().slice(0, 16);
+      document.getElementById('reservation_time').setAttribute('min', minTime);
+    });
+  </script>
+{% endblock %}

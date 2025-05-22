@@ -1,0 +1,26 @@
+
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Sustainability{% endblock %}
+
+{% block content %}
+
+  <!-- Include Font Awesome for Arrows -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'website/styles.css' %}">
+ <div class="moresec">
+    <a href="{% url 'about' %}" class="backLink">&larr; Back</a>
+
+    <h1 class="moreTitle">Chef Curated</h1>
+
+
+   <center> <p class="paragraphmore">
+Presentation of food is a very important aspect, enhancing the whole dining experience. Every dish has a well-scripted story, from the origin of the ingredients to the passion and creativity of the chef.
+<br><br>
+Our world-renowned chefs, known for their artistic culinary experiences and in great demand by platforms like MasterChef and Hell's Kitchen, derive inspiration from cuisines and traditions from all around the world. They make sure that everything, from its sourcing to plating, is well taken care of with extreme diligence.
+<br><br>
+Our chefs pay homage to the rich heritage and cultural values from which they draw inspiration in their creations. Their commitment to innovation will ensure that the dishes are not only unique in terms of experience for the customer but also a celebration of culinary storytelling.
+
+    </p></center>
+  </div>
+{% endblock %}

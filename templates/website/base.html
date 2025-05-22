@@ -1,0 +1,1245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}Origin Kitchen{% endblock %}</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts (Poppins) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'website/styles.css' %}">
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- Sticky Footer CSS -->
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+    main {
+      flex: 1;
+    }
+    .custom-footer {
+      background: #f8f9fa;
+      padding: 40px 20px;
+      width: 100%;
+    }
+    .custom-footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .custom-footer-brand h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin: 0;
+    }
+    .custom-footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .custom-footer-link-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .custom-footer-link-row a {
+      color: #34495e;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s ease;
+    }
+    .custom-footer-link-row a:hover {
+      color: #27ae60;
+    }
+    .custom-footer-socials {
+      display: flex;
+      gap: 15px;
+    }
+    .custom-footer-socials a {
+      color: #34495e;
+      font-size: 1.5rem;
+      transition: color 0.2s ease;
+    }
+    .custom-footer-socials a:hover {
+      color: #27ae60;
+    }
+    @media (max-width: 768px) {
+      .custom-footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      .custom-footer-right {
+        align-items: center;
+      }
+      .custom-footer-link-row {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light navbar-custom px-4 sticky-top">
+    <a class="navbar-brand fw-bold" href="{% url 'home' %}">Origin Kitchen</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="navbar-overlay d-lg-none">
+        <ul class="navbar-nav nav-links text-center mx-auto">
+          <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'sus' %}">Sustainability</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'locations' %}">Locations</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'locations' %}">Reservation</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'documentation' %}">References</a></li>
+          <li class="nav-item mt-2"><a href="{% url 'cart' %}" class="cart-link d-inline-block"><i class="bi bi-cart" style="font-size: 23px; color: #fff;"></i></a></li>
+        </ul>
+      </div>
+      <ul class="navbar-nav d-none d-lg-flex align-items-center ms-auto me-3 nav-links">
+        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'sus' %}">Sustainability</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'locations' %}">Locations</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'locations' %}">Reservation</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'documentation' %}">References</a></li>
+      </ul>
+      <a href="{% url 'cart' %}" class="cart-link d-none d-lg-inline-block ms-3"><i class="bi bi-cart" style="font-size: 23px; color: #333;"></i></a>
+    </div>
+  </nav>
+
+  <!-- Main Content Block -->
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="custom-footer">
+    <div class="custom-footer-container">
+      <div class="custom-footer-brand">
+        <h3>Origin Kitchen</h3>
+      </div>
+      <div class="custom-footer-right">
+        <div class="custom-footer-link-row">
+          <a href="{% url 'about' %}">About Us</a>
+          <a href="{% url 'menu' %}">Menu</a>
+          <a href="{% url 'blog' %}">Blogs</a>
+          <a href="{% url 'locations' %}">Locations</a>
+          <a href="{% url 'contact' %}">Contact</a>
+        </div>
+        <div class="custom-footer-socials">
+          <a target="_blank" href="https://x.com/Origin_Kitchen"><i class="bi bi-twitter-x"></i></a>
+          <a target="_blank" href="https://www.instagram.com/origin_kitchen_/"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chatbot Button and Window -->
+  <div id="chatbot-container">
+    <button id="chatbot-toggle-btn" aria-label="Open Chatbot">
+      <i class="bi bi-chat"></i>
+    </button>
+    <div id="chatbot-window" class="hidden">
+      <div id="chatbot-header">
+        <span>Origin Kitchen Chat</span>
+        <button id="chatbot-close-btn" aria-label="Close Chatbot">×</button>
+      </div>
+      <div id="chatbot-messages"></div>
+      <div id="chatbot-options"></div>
+    </div>
+  </div>
+
+  <!-- Chatbot Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('chatbot-toggle-btn');
+      const chatWindow = document.getElementById('chatbot-window');
+      const closeBtn = document.getElementById('chatbot-close-btn');
+      const messagesDiv = document.getElementById('chatbot-messages');
+      const optionsContainer = document.getElementById('chatbot-options');
+
+      // Predefined questions and answers
+      const answers = {
+        "Restaurant hours": "Origin Kitchen is open daily from 9:00 AM to 9:00 PM. We offer brunch, lunch, and dinner services. Reservations are recommended for dinner, especially on weekends.",
+        "Special of the day": "Today's specials are Stuffed Bell Peppers with quinoa and black beans for $24.00 or Hearty Vegetable Curry with coconut milk and basmati rice for $16.00. Specials change daily based on fresh, local ingredients.",
+        "Menu": "Our menu features a variety of vegan and vegetarian dishes, including Vegan Chili, Vegan Pizza with cashew cheese, Vegan Chopped Salad, and desserts like Sticky Toffee Pudding. All ingredients are locally sourced and organic where possible. Check our website for the full menu or ask about specific dishes!",
+        "Dine with you": "Dining with Origin Kitchen means enjoying farm-fresh ingredients, chef-curated dishes, and sustainable practices. Our zero-waste kitchen and eco-friendly packaging ensure every meal supports the planet while delighting your taste buds.",
+        "Sustainable ingredients": "We partner with local farms within a 50-mile radius to source fresh, organic, and sustainable ingredients. Our seasonal menus reflect what’s freshest, reducing our carbon footprint and supporting local agriculture.",
+        "Vegan options": "Yes, we offer a wide range of vegan options, including Vegan Chili, Vegan Pizza, Avocado Toast, and our signature Vegan Chocolate Mousse. Our chefs can also customize many dishes to be vegan upon request.",
+        "Eco-friendly packaging": "We use 100% compostable and recyclable packaging for takeout and delivery. Our zero-waste kitchen policy includes composting food scraps and recycling all eligible materials to minimize environmental impact.",
+        "Awards": "Origin Kitchen has been honored with the Green Restaurant Award (2023), Best Vegan Dish of the Year (2024) for our Vegan Pizza, and the Sustainable Business Award for our eco-friendly practices. We’re proud to lead in sustainability and culinary excellence.",
+        "Reservations": "Reservations can be made online via our website or by calling our locations. We recommend booking at least 24 hours in advance for dinner and weekend brunch. Walk-ins are welcome, subject to availability.",
+        "Locations": "We have two locations: one in downtown [City Name] at 123 Green St, and another in [Suburb Name] at 456 Eco Ave. Both offer indoor and outdoor seating with a cozy, sustainable ambiance.",
+        "Delivery options": "We offer delivery through our website and third-party platforms like Uber Eats and DoorDash. All deliveries use eco-friendly packaging and electric vehicles to reduce emissions.",
+        "Catering services": "Origin Kitchen provides catering for events of all sizes, from corporate lunches to weddings. Our catering menu features vegan and vegetarian options, with customizable packages. Contact us at catering@originkitchen.com for details.",
+        "Allergen information": "We take allergies seriously. Our menu clearly labels common allergens (nuts, gluten, soy, etc.). Please inform our staff of any allergies when ordering, and we can modify dishes to accommodate your needs.",
+        "Kids’ menu": "Our kids’ menu includes vegan-friendly options like Mini Veggie Sliders, Fresh Fruit Cups, and Vegan Mac & Cheese, all priced under $10. We also offer smaller portions of select adult dishes for children.",
+        "Happy hour": "Join us for happy hour from 4:00 PM to 6:00 PM, Monday through Friday, at both locations. Enjoy $5 vegan appetizers and discounted organic wines and local craft beers.",
+        "Cooking classes": "We host monthly vegan cooking classes led by our chefs, teaching techniques for plant-based dishes. Classes are $50 per person and include a meal. Check our website for upcoming dates and registration.",
+        "Gift cards": "Gift cards are available in amounts from $25 to $200, redeemable at both locations or online. Purchase them at our restaurants or through our website for a perfect eco-conscious gift.",
+        "Community involvement": "Origin Kitchen supports local charities and environmental initiatives. We donate 5% of our profits to sustainable farming projects and host quarterly community clean-up events. Join us to make a difference!"
+      };
+
+      // Add welcome message
+      const welcomeMsg = document.createElement('div');
+      welcomeMsg.classList.add('ai-message');
+      welcomeMsg.textContent = 'Welcome to Origin Kitchen! Choose a question below to learn more.';
+      messagesDiv.appendChild(welcomeMsg);
+
+      // Create question buttons
+      function createOptions() {
+        optionsContainer.innerHTML = '';
+        Object.keys(answers).forEach(question => {
+          const button = document.createElement('button');
+          button.textContent = question;
+          button.className = 'question';
+          button.setAttribute('aria-label', `Ask about ${question}`);
+          button.onclick = () => {
+            addMessage(question, 'user');
+            setTimeout(() => addMessage(answers[question], 'ai'), 500);
+          };
+          optionsContainer.appendChild(button);
+        });
+      }
+
+      // Add message to chat
+      function addMessage(message, sender) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add(sender === 'user' ? 'user-message' : 'ai-message');
+        messageElement.textContent = message;
+        messagesDiv.appendChild(messageElement);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }
+
+      // Toggle chatbot visibility
+      function updateButtonVisibility() {
+        if (chatWindow.classList.contains('hidden')) {
+          toggleBtn.classList.remove('hidden');
+        } else {
+          toggleBtn.classList.add('hidden');
+        }
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        chatWindow.classList.remove('hidden');
+        updateButtonVisibility();
+      });
+
+      closeBtn.addEventListener('click', () => {
+        chatWindow.classList.add('hidden');
+        updateButtonVisibility();
+      });
+
+      // Initialize options
+      createOptions();
+
+      // Mobile menu close functionality
+      const navbarCollapse = document.querySelector('#navbarContent');
+      const navLinks = document.querySelectorAll('.navbar-overlay .nav-link, .navbar-overlay .cart-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navbarCollapse.classList.remove('show');
+        });
+      });
+    });
+  </script>
+
+  <!-- Existing Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="{% static 'website/scripts.js' %}"></script>
+
+  <!-- Navbar and General Styles -->
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #2A2A2A;
+      background-color: #ffffff;
+      margin: 0;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* Font for Headings (Butler) */
+    @font-face {
+      font-family: 'Butler';
+      src: url('https://cdn.prod.website-files.com/670f7ea49b9dfdd5b6fb31b4/6712288436687e9d40d1c2da_Butler_Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Butler';
+      src: url('https://cdn.prod.website-files.com/670f7ea49b9dfdd5b6fb31b4/671228844bde86400c480fbd_Butler_Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    /* Consistent Button Styles */
+    .btn-primary {
+      background-color: #2F5F4A;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background-color: #4CAF50;
+      transform: translateY(-2px);
+    }
+    /* Navbar */
+    .navbar-custom {
+      position: sticky;
+      top: 0;
+      background-color: #efefef;
+      height: 60px;
+      z-index: 1030;
+    }
+    .navbar-brand {
+      color: rgba(47, 95, 74, 1);
+      font-size: 1.3rem;
+      font-weight: 600;
+      font-family: 'Butler', serif;
+    }
+    .nav-link {
+      color: rgba(47, 95, 74, 1);
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: color 0.3s ease;
+      text-transform: uppercase;
+    }
+    .nav-link:hover {
+      color: #cde6d2;
+    }
+    .cart-link {
+      background-color: rgba(47, 95, 74, 1);
+      color: white;
+      padding: 0.4em 0.8em;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      margin-left: 2rem;
+      white-space: nowrap;
+    }
+    .cart-link:hover {
+      background-color: #cde6d2;
+      color: rgba(47, 95, 74, 1);
+    }
+    .navbar-toggler {
+      position: relative;
+      border: none;
+    }
+    .navbar-overlay {
+      background-color: rgba(47, 95, 74, 0.95);
+      width: 100%;
+      padding: 2rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .navbar-overlay .nav-link {
+      color: #fff !important;
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      text-transform: uppercase;
+    }
+    .navbar-overlay .nav-link:hover {
+      color: #cde6d2 !important;
+    }
+    @media (min-width: 991px) {
+      .cart-link i {
+        color: #fff !important;
+      }
+    }
+    @media (max-width: 768px) {
+      .faq-section {
+        padding: 2rem 1rem;
+      }
+      .faq-header h2 {
+        font-size: 2rem;
+      }
+      .faq-subtitle {
+        font-size: 1rem;
+      }
+      .accordion-button {
+        font-size: 1rem;
+        padding: 1rem;
+      }
+      .accordion-body {
+        font-size: 0.95rem;
+        padding: 1rem;
+      }
+    }
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: rgba(47, 95, 74, 0.95);
+        z-index: 999;
+      }
+      .cart-link {
+        background-color: #fff;
+        color: rgba(47, 95, 74, 1) !important;
+        margin: 0 auto;
+      }
+      .cart-link i {
+        color: black !important;
+      }
+      .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+      }
+      .nav-item {
+        width: 100%;
+      }
+    }
+    /* Chatbot Styles */
+    #chatbot-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    #chatbot-toggle-btn {
+      background-color: #27ae60;
+      color: #ffffff;
+      border: none;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    #chatbot-toggle-btn:hover {
+      background-color: #219653;
+      transform: translateY(-3px);
+    }
+    #chatbot-toggle-btn.hidden {
+      display: none;
+    }
+    #chatbot-toggle-btn i {
+      font-size: 1.5rem;
+    }
+    #chatbot-window {
+      width: 320px;
+      min-width: 250px;
+      max-width: 400px;
+      height: 400px;
+      min-height: 300px;
+      max-height: 600px;
+      background-color: #f8f9fa;
+      border: 1px solid #27ae60;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      bottom: 0px;
+      right: 0;
+      overflow: hidden; /* Prevent container scroll */
+      font-family: 'Poppins', sans-serif;
+    }
+    #chatbot-window.hidden {
+      display: none;
+    }
+    #chatbot-header {
+      background-color: #2c3e50;
+      color: #ffffff;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      flex: 0 0 auto; /* Fixed height */
+    }
+    #chatbot-close-btn {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    #chatbot-close-btn:hover {
+      color: #27ae60;
+    }
+    #chatbot-messages {
+      flex: 1 1 auto; /* Grow but respect max-height */
+      max-height: 280px; /* Limit message area */
+      padding: 12px;
+      padding-bottom: 20px; /* Space above buttons */
+      padding-top: 20px; /* Space above buttons */
+      overflow-y: auto; /* Scroll messages only */
+      background-color: #f8f9fa;
+      color: #2c3e50;
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: #27ae60 #e5e7eb;
+    }
+    #chatbot-messages::-webkit-scrollbar {
+      width: 6px; /* Chrome, Safari */
+    }
+    #chatbot-messages::-webkit-scrollbar-track {
+      background: #e5e7eb;
+    }
+    #chatbot-messages::-webkit-scrollbar-thumb {
+      background: #27ae60;
+      border-radius: 3px;
+    }
+    .user-message, .ai-message {
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      max-width: 80%;
+    }
+    .user-message {
+      background-color: #27ae60;
+      color: #ffffff;
+      margin-left: auto;
+      text-align: right;
+    }
+    .ai-message {
+      background-color: #ffffff;
+      color: #2c3e50;
+      margin-right: auto;
+      text-align: left;
+      border: 1px solid #d1d5db;
+      white-space: pre-wrap;
+    }
+    #chatbot-options {
+      flex: 0 0 auto; /* Fixed height */
+      height: 90px; /* Fixed button area */
+      min-height: 90px;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      white-space: nowrap;
+      font-size: 7px;
+      padding: 12px;
+      border-top: 1px solid #27ae60;
+      background-color: #f8f9fa;
+      gap: 8px;
+      scrollbar-width: thin;
+      scrollbar-color: #27ae60 #e5e7eb;
+    }
+    #chatbot-options::-webkit-scrollbar {
+      height: 6px;
+    }
+    #chatbot-options::-webkit-scrollbar-track {
+      background: #e5e7eb;
+    }
+    #chatbot-options::-webkit-scrollbar-thumb {
+      background: #27ae60;
+      border-radius: 3px;
+    }
+    .question {
+      background-color: #ffffff;
+      color: #2c3e50;
+      border: 1px solid #27ae60;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      min-width: 100px; /* Prevent button shrinking */
+      text-align: center;
+    }
+    .question:hover {
+      background-color: #27ae60;
+      color: #ffffff;
+    }
+    .question:focus {
+      outline: 2px solid #27ae60;
+      outline-offset: 2px;
+    }
+    /* Mobile Adjustments */
+    @media (max-width: 808px) {
+      #chatbot-container {
+        bottom: 70px;
+        right: 15px;
+      }
+      #chatbot-toggle-btn {
+        width: 45px;
+        height: 45px;
+        padding: 10px;
+      }
+      #chatbot-toggle-btn i {
+        font-size: 1.25rem;
+      }
+      #chatbot-window {
+        width: 90vw;
+        max-width: 320px;
+        height: 350px;
+        bottom: 10px;
+        right: 10px;
+      }
+      #chatbot-header {
+        padding: 10px 12px;
+        font-size: 1rem;
+      }
+      #chatbot-close-btn {
+        font-size: 1rem;
+      }
+      #chatbot-messages {
+        max-height: 230px; /* Smaller message area */
+        padding: 10px;
+        padding-bottom: 15px;
+      }
+      .user-message, .ai-message {
+        font-size: 0.9rem;
+        padding: 8px;
+      }
+      #chatbot-options {
+        height: 56px;
+        min-height: 56px;
+        padding: 10px;
+        gap: 6px;
+      }
+      .question {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        min-width: 90px;
+      }
+    }
+    @media (max-width: 480px) {
+      #chatbot-window {
+        height: 300px;
+      }
+      #chatbot-header {
+        font-size: 0.95rem;
+      }
+      #chatbot-messages {
+        max-height: 180px; /* Even smaller message area */
+        padding-bottom: 10px;
+      }
+      .user-message, .ai-message {
+        font-size: 0.85rem;
+      }
+      #chatbot-options {
+        height: 52px;
+        min-height: 52px;
+        padding: 8px;
+        gap: 5px;
+      }
+      .question {
+        font-size: 0.8rem;
+        padding: 6px 8px;
+        min-width: 80px;
+      }
+    }
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Services Section */
+    .services-header {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .services-header p {
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      color: #777;
+      margin-bottom: 1rem;
+    }
+    .services-header h2 {
+      font-size: 2.5rem;
+      font-family: 'Butler', sans-serif;
+      color: #2F5F4A;
+      margin-bottom: 1rem;
+    }
+    .sticky-services-section {
+      background-color: #fff;
+      position: relative;
+      z-index: 25;
+    }
+    .service-base {
+      background-color: #fff;
+      border: 1px solid rgba(39, 56, 31, 0.2);
+      border-radius: 12px;
+      max-height: 53rem;
+      display: flex;
+      margin-top: -5%;
+      position: sticky;
+      top: 3rem;
+      padding: 2%;
+      box-sizing: border-box;
+    }
+    .service-cover {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+    .service-item-card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    .service-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 0;
+    }
+    .service-image {
+      border-radius: 8px;
+      overflow: hidden;
+      width: 100%;
+      height: auto;
+    }
+    .service-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .service-description {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .uppercase-text {
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: #777;
+      font-weight: 500;
+    }
+    .main-heading-h2 {
+      font-size: 2rem;
+      font-family: 'Butler', sans-serif;
+      color: #2F5F4A;
+    }
+    .service-cost {
+      border: 1px solid rgba(39, 56, 31, 0.2);
+      border-radius: 6px;
+      padding: 0.3rem 0.8rem;
+      font-size: 1rem;
+      color: #2A2A2A;
+      display: inline-block;
+    }
+    .medium-text {
+      font-size: 1rem;
+      color: #555;
+    }
+    .button-link {
+      text-decoration: none;
+      color: #2F5F4A;
+      font-weight: 500;
+    }
+    .button-link:hover {
+      color: #4CAF50;
+    }
+    @media (max-width: 768px) {
+      .service-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+      }
+      .service-image {
+        height: auto;
+      }
+    }
+    /* Benefits Section */
+    .benefits-section {
+      background-color: #ECECEC;
+      padding: 4rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .benefits-container {
+      display: flex;
+      gap: 3rem;
+      max-width: 1200px;
+      width: 100%;
+      align-items: center;
+    }
+    .benefits-left {
+      flex: 1;
+    }
+    .benefits-left h1 {
+      font-size: 2.5rem;
+      font-family: 'Butler', sans-serif;
+      color: #2F5F4A;
+      margin-bottom: 1rem;
+    }
+    .benefits-left p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .benefits-grid {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .benefit-item {
+      flex: 1;
+    }
+    .benefit-item p:first-child {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2F5F4A;
+      margin-bottom: 0.5rem;
+    }
+    .benefit-item h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2A2A2A;
+      margin-bottom: 0.5rem;
+    }
+    .benefit-item p:last-child {
+      font-size: 1rem;
+      color: #555;
+    }
+    .benefits-left .btn-primary {
+      width: 150px;
+      text-align: center;
+    }
+    .benefits-right {
+      flex: 1;
+    }
+    .benefits-right img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      .benefits-container {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .benefits-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .benefits-left .btn-primary {
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+    /* Portfolio Section */
+    .section-container {
+      padding: 4rem 2rem;
+      background-color: #fff;
+      position: relative;
+      z-index: 25;
+    }
+    .portfolio-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+    .section-header {
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      color: #777;
+      margin-bottom: 1rem;
+    }
+    .section-container h1 {
+      font-size: 2.5rem;
+      font-family: 'Butler', sans-serif;
+      color: #2F5F4A;
+      margin-bottom: 2rem;
+    }
+    .left-image {
+      width: 50%;
+      border-radius: 15px;
+      object-fit: cover;
+      position: sticky;
+      top: 3rem;
+      height: 70vh;
+    }
+    .right-content {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .right-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .right-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .right-item img {
+      width: 50%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .text-block {
+      width: 50%;
+    }
+    .text-block h1 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2A2A2A;
+      margin-bottom: 0.5rem;
+    }
+    .text-block p {
+      font-size: 1rem;
+      color: #555;
+      text-transform: none;
+    }
+    .blog-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #2F5F4A;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    .blog-link:hover {
+      color: #4CAF50;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .portfolio-wrapper {
+        flex-direction: column;
+        padding: 2rem;
+      }
+      .section-header,
+      .section-container h1 {
+        text-align: center;
+      }
+      .left-image,
+      .right-content {
+        width: 100%;
+      }
+      .left-image {
+        display: none;
+      }
+      .right-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .right-item img,
+      .text-block {
+        width: 100%;
+      }
+      .right-item img {
+        margin-bottom: 1rem;
+      }
+    }
+    /* Features Section */
+    .features {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: #fff;
+    }
+    .features .titlefeature {
+      margin-bottom: 3rem;
+    }
+    .features .subt p {
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+    .features .titlefeature span {
+      font-size: 2.5rem;
+      font-family: 'Butler', sans-serif;
+      color: #2F5F4A;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .features .subb {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .features .cards {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+      justify-items: center;
+    }
+    @media (min-width: 800px) {
+      .features .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .features .card {
+      background: #F6F8F3;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      width: 95%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .features .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
+    .features .cardinfo {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .features .card-icon {
+      font-size: 2.5rem;
+      color: #2F5F4A;
+      margin-bottom: 1rem;
+    }
+    .features .cardinfo h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2F5F4A;
+      margin-bottom: 1rem;
+    }
+    .features .cardinfo .description {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.7;
+      text-align: center;
+    }
+    .features .morecard {
+      background-color: transparent;
+      color: #2F5F4A;
+      border: 2px solid #2F5F4A;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+    .features .morecard:hover {
+      background-color: #2F5F4A;
+      color: #fff;
+    }
+    @media (max-width: 480px) {
+      .features .card {
+        width: 100%;
+      }
+      .features .card img {
+        height: 140px;
+      }
+    }
+    /* Contact Section */
+    .contact {
+      background-image: url("{% static 'k.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .contact h1 {
+      font-size: 2.5rem;
+      font-family: 'Butler', sans-serif;
+      margin-bottom: 1rem;
+      max-width: 600px;
+    }
+    .contact p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+    .contact .btn-primary {
+      width: 150px;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .contact h1,
+      .contact p {
+        max-width: 90%;
+      }
+      .contact .btn-primary {
+        width: 50%;
+      }
+    }
+    /* Footer */
+    .custom-footer {
+      background-color: #F2F2EF;
+      color: #2A2A2A;
+      padding: 3rem 2rem;
+    }
+    .custom-footer-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .custom-footer-brand h3 {
+      font-size: 1.5rem;
+      font-family: 'Butler', sans-serif;
+      color: #2F5F4A;
+      margin: 0;
+    }
+    .custom-footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .custom-footer-link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .custom-footer-link-row a {
+      color: #2A2A2A;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .custom-footer-link-row a:hover {
+      color: #4CAF50;
+    }
+    .custom-footer-socials {
+      display: flex;
+      gap: 1rem;
+    }
+    .custom-footer-socials a {
+      color: #2A2A2A;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+    .custom-footer-socials a:hover {
+      color: #4CAF50;
+    }
+    @media (min-width: 768px) {
+      .custom-footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .custom-footer-right {
+        align-items: flex-end;
+        text-align: right;
+      }
+      .custom-footer-link-row,
+      .custom-footer-socials {
+        justify-content: flex-end;
+      }
+    }
+    /* Affiliations Section */
+    .affiliations {
+      margin: 40px 0;
+      text-align: center;
+      background-color: #fff;
+      width: 100%;
+      padding: 40px 0;
+      color: #333;
+      box-sizing: border-box;
+    }
+    .affiliations h2 {
+      font-family: 'Butler', sans-serif;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    .affiliations p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    .carousel {
+      width: 100%;
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      align-items: center;
+      animation: slide 20s linear infinite;
+      width: max-content;
+    }
+    .carousel-track img {
+      width: 200px;
+      height: 120px;
+      margin: 0 30px;
+      object-fit: contain;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    .carousel-track img:hover {
+      opacity: 1;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+</body>
+</html>

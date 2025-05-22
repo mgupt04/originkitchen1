@@ -1,0 +1,21 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Sustainability{% endblock %}
+
+{% block content %}
+
+  <!-- Include Font Awesome for Arrows -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'website/styles.css' %}">
+
+    <div class="moresec">
+    <a href="{% url 'sus' %}" class="backLink">&larr; Back</a>
+
+    <h1 class="moreTitle">Food Donation</h1>
+
+
+   <center> <p class="paragraphmore">
+      Within the fight against food waste and in support of our community, we have a food donation program that diverts surplus food to those in need. The organization picks up unsold but perfectly good meals and ingredients every day and donates them to local shelters. This way, the surplus food does not go to landfills but serves a meaningful purpose. This contributes to the gap of surplus food against food insecurity andallows environmental sustainability, coupled with social responsibility.
+    </p></center>
+  </div>
+{% endblock %}

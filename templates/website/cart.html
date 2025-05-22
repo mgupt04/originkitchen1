@@ -1,0 +1,62 @@
+{% extends 'website/base.html' %}
+{% block title %}Cart - Simply Green{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center; margin-top: 20px; font-family: inherit;">Your Cart</h1>
+
+{% if cart_items %}
+<div class="cart-container" style="max-width: 800px; margin: 30px auto; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); background: #fff;">
+  {% for item in cart_items %}
+  <div class="cart-item" style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 15px 0;">
+    
+    <!-- Product Info -->
+    <div class="cart-item-details" style="display: flex; align-items: center; gap: 20px; padding: 20px;">
+      <div>
+        <div class="cart-item-name" style="font-size: 18px; font-weight: bold;">{{ item.menu_item.name }}</div>
+        <div class="cart-item-price" style="color: #555;">${{ item.menu_item.price }}</div>
+      </div>
+    </div>
+
+    <!-- Quantity Control -->
+    <div class="cart-item-actions" style="display: flex; align-items: center; gap: 10px; padding: 20px;">
+      <a href="{% url 'decrease_cart_item' item.id %}" class="add-btn" style="font-size: 20px; padding: 6px 12px;">−</a>
+      <div class="cart-item-amount" style="font-size: 16px;">{{ item.quantity }}</div>
+      <a href="{% url 'increase_cart_item' item.id %}" class="add-btn" style="font-size: 20px; padding: 6px 12px;">+</a>
+    </div>
+  </div>
+  {% endfor % %}
+
+  <!-- Total and Button -->
+  <div class="cart-total" style="margin-top: 25px; display: flex; justify-content: space-between; align-items: center;">
+    <div class="total-label" style="font-size: 18px; font-weight: bold;">Total:</div>
+    <div class="total-amount" style="font-size: 18px;">${{ total_price }}</div>
+  </div>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="/place-order" class="place-order-btn" style="padding: 10px 25px; font-size: 16px; border-radius: 6px;">Place Order</a>
+  </div>
+</div>
+{% else %}
+<p class="empty-cart">Your cart is empty. <a href="{% url 'menu' %}">Explore our menu</a> to add items!</p>
+{% endif %}
+<style>
+  /* Empty cart message */
+  .empty-cart {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 1.5rem;
+    color: #7f8c8d;
+  }
+
+  .empty-cart a {
+    color: #27ae60;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .empty-cart a:hover {
+    text-decoration: underline;
+  }
+</style>
+{% endblock %}
+

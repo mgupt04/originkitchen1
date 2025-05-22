@@ -1,0 +1,21 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Sustainability{% endblock %}
+
+{% block content %}
+
+  <!-- Include Font Awesome for Arrows -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'website/styles.css' %}">
+
+<div class="moresec">
+    <a href="{% url 'sus' %}" class="backLink">&larr; Back</a>
+
+    <h1 class="moreTitle">Water Efficient</h1>
+
+
+    <center><p class="paragraphmore">
+This therefore brings about water being recognized and valued as the resource it really is. Initiatives in place include installing low-flow faucets and dishwashers, without trading out performance for water conservation. Secondly, we recycle water through a collection of grey water for reuse other than potable purposes, for example, irrigation and cleaning. Those combined surely reduce our water footprint and mean wise use every day.
+    </p></center>
+  </div>
+{% endblock %}
